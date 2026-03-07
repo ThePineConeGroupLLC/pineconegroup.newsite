@@ -28,13 +28,14 @@ function useCounter(target: number, duration = 2000, start = false) {
   return count;
 }
 
-function StatItem({ value, label }: { value: string; label: string }) {
+function StatItem({ value, label, large = false }: { value: string; label: string; large?: boolean }) {
   const ref = useRef<HTMLDivElement>(null);
   const [started, setStarted] = useState(false);
-  const match = value.match(/^([0-9.]+)(.*)$/);
-  const numericPart = match ? parseFloat(match[1]) : 0;
-  const suffix = match ? match[2] : value;
-  const isDecimal = match ? match[1].includes(".") : false;
+  const match = value.match(/^([+]?)([0-9.]+)(.*)$/);
+  const prefix = match ? match[1] : "";
+  const numericPart = match ? parseFloat(match[2]) : 0;
+  const suffix = match ? match[3] : value;
+  const isDecimal = match ? match[2].includes(".") : false;
   const count = useCounter(isDecimal ? numericPart * 10 : numericPart, 2000, started);
   const displayNum = isDecimal ? (count / 10).toFixed(1) : count;
 
@@ -48,11 +49,12 @@ function StatItem({ value, label }: { value: string; label: string }) {
   }, []);
 
   return (
-    <div ref={ref} className="text-center py-10 px-4">
-      <div className="font-playfair text-4xl md:text-6xl lg:text-7xl font-black text-[#0fb8ce] mb-3 leading-none">
-        {match ? `${displayNum}${suffix}` : value}
+    <div ref={ref} className={large ? "" : "text-center py-10 px-4"}>
+      <div className={`font-playfair font-black text-[#0fb8ce] leading-none ${large ? "" : "text-4xl md:text-6xl lg:text-7xl mb-3"}`}
+        style={large ? { fontSize: "clamp(2rem, 8vw, 3.5rem)" } : undefined}>
+        {match ? `${prefix}${displayNum}${suffix}` : value}
       </div>
-      <div className="text-gray-400 text-xs uppercase tracking-widest leading-relaxed">{label}</div>
+      {label && <div className="text-gray-400 text-xs uppercase tracking-widest leading-relaxed">{label}</div>}
     </div>
   );
 }
@@ -254,7 +256,7 @@ export default function Home() {
                   </div>
                   <h3 className="font-playfair font-bold text-white text-xl mb-1">{c.client}</h3>
                   <p className="text-gray-400 text-sm mb-4">{c.metricLabel}</p>
-                  <div className="font-playfair font-black text-[#0fb8ce] mb-5" style={{ fontSize: "clamp(2rem, 8vw, 3.5rem)", lineHeight: 1 }}>{c.metric}</div>
+                  <div className="mb-5"><StatItem value={c.metric} label="" large /></div>
                   <p className="text-gray-400 italic text-sm leading-relaxed border-l-2 border-[#0fb8ce]/30 pl-4">&ldquo;{c.quote}&rdquo;</p>
                 </div>
               </FadeIn>
