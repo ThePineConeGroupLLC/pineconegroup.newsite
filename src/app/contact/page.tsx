@@ -90,6 +90,7 @@ export default function ContactPage() {
             ) : (
               <div className="rounded-2xl p-8" style={{ background: CARD, border: "1px solid rgba(255,255,255,0.07)" }}>
                 <form onSubmit={handleSubmit} className="space-y-5">
+                  <input type="hidden" name="_subject" value="New Lead — Website Lead Gen Form" />
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div>
                       <label className="block text-xs uppercase tracking-widest text-gray-400 mb-2">Full Name *</label>
