@@ -30,14 +30,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${playfair.variable} ${inter.variable} antialiased`}>
         <ErrorReporter />
-        <Script id="resize-observer-fix" strategy="afterInteractive">{`
-          window.addEventListener('error', function(e) {
-            if (e.message === 'ResizeObserver loop completed with undelivered notifications.') {
-              e.stopImmediatePropagation();
-            }
-          });
-        `}</Script>
-        <Script
+<Script
           src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/scripts//route-messenger.js"
           strategy="afterInteractive"
           data-target-origin="*"
