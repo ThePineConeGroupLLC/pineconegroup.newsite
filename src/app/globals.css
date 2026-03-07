@@ -142,8 +142,8 @@ nextjs-portal {
 
 /* CTA button animations */
 @keyframes cta-shimmer {
-  0% { left: -60%; }
-  100% { left: 130%; }
+  0% { transform: translateX(-200%) skewX(-15deg); }
+  100% { transform: translateX(500%) skewX(-15deg); }
 }
 
 @keyframes cta-glow-pulse {
@@ -154,20 +154,20 @@ nextjs-portal {
 .cta-btn {
   position: relative;
   overflow: hidden;
-  clip-path: inset(0 round 9999px);
   background: linear-gradient(135deg, #0fb8ce 0%, #0dd4ed 50%, #0fb8ce 100%) !important;
   box-shadow: 0 0 28px rgba(15,184,206,0.5), 0 0 56px rgba(15,184,206,0.2), inset 0 1px 0 rgba(255,255,255,0.25) !important;
   animation: cta-glow-pulse 2.5s ease-in-out infinite;
   transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease !important;
   will-change: opacity;
+  isolation: isolate;
 }
 
 .cta-btn::before {
   content: "";
   position: absolute;
   top: 0;
-  left: -60%;
-  width: 45%;
+  left: 0;
+  width: 30%;
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
   animation: cta-shimmer 2.8s ease-in-out infinite;
