@@ -45,7 +45,7 @@ export default function ContactPage() {
             <span className="text-[#0fb8ce] uppercase tracking-[0.2em] text-xs font-bold">Get In Touch</span>
           </div>
           <h1 className="font-playfair font-black text-white leading-tight mb-6" style={{ fontSize: "clamp(2.5rem, 8vw, 5rem)" }}>
-            Let&apos;s Talk About <span style={{ color: "#F5A94C" }}>Your Growth</span>
+            Let&apos;s Talk About <span style={{ color: "#ffebb7" }}>Your Growth</span>
           </h1>
           <p className="text-gray-400 text-xl leading-relaxed max-w-2xl mx-auto">
             We partner with ambitious brands to grow leads, revenue, and digital authority through premium creative strategy and execution.

@@ -26,7 +26,7 @@ function gradeFromScore(score: number): string {
 
 function colorFromScore(score: number): string {
   if (score >= 75) return "#0fb8ce";
-  if (score >= 50) return "#F5A94C";
+  if (score >= 50) return "#ffebb7";
   return "#e05a5a";
 }
 

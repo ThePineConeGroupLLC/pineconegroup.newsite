@@ -35,7 +35,7 @@ export default function ServicesPage() {
             <span className="text-[#0fb8ce] uppercase tracking-[0.2em] text-xs font-bold">What We Do</span>
           </div>
           <h1 className="font-playfair font-black text-white leading-tight mb-6" style={{ fontSize: "clamp(2.5rem, 8vw, 5rem)" }}>
-            Services Built for <span style={{ color: "#F5A94C" }}>Growth</span>
+            Services Built for <span style={{ color: "#ffebb7" }}>Growth</span>
           </h1>
           <p className="text-gray-400 text-xl leading-relaxed max-w-2xl mx-auto">
             Every engagement is built around your specific business goals, market position, and growth trajectory.
