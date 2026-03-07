@@ -33,11 +33,19 @@ export default function ContactPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="pt-40 pb-24 px-6" style={{ background: `linear-gradient(160deg, #0a1614 0%, ${BG} 100%)` }}>
-        <div className="max-w-4xl mx-auto text-center">
-          <p className="text-[#0fb8ce] uppercase tracking-[0.2em] text-xs font-bold mb-5">Get In Touch</p>
+      <section className="relative pt-40 pb-24 px-6 overflow-hidden" style={{ background: `linear-gradient(160deg, #0a1614 0%, ${BG} 100%)` }}>
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute top-1/4 right-0 w-72 h-72 md:w-[500px] md:h-[500px] rounded-full blur-3xl" style={{ background: "rgba(15,184,206,0.09)", animation: "pulse 7s ease-in-out infinite" }} />
+          <div className="absolute bottom-0 left-0 w-48 h-48 md:w-72 md:h-72 rounded-full blur-3xl" style={{ background: "rgba(245,169,76,0.06)", animation: "pulse 9s ease-in-out infinite 2s" }} />
+          <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(15,184,206,0.05) 0%, transparent 65%)" }} />
+        </div>
+        <div className="relative max-w-4xl mx-auto text-center">
+          <div className="inline-flex items-center gap-3 rounded-full px-5 py-2 mb-6" style={{ background: "rgba(15,184,206,0.1)", border: "1px solid rgba(15,184,206,0.35)" }}>
+            <span className="w-2 h-2 rounded-full bg-[#0fb8ce] inline-block animate-pulse" />
+            <span className="text-[#0fb8ce] uppercase tracking-[0.2em] text-xs font-bold">Get In Touch</span>
+          </div>
           <h1 className="font-playfair font-black text-white leading-tight mb-6" style={{ fontSize: "clamp(2.5rem, 8vw, 5rem)" }}>
-            Let&apos;s Talk About Your Growth
+            Let&apos;s Talk About <span style={{ color: "#F5A94C" }}>Your Growth</span>
           </h1>
           <p className="text-gray-400 text-xl leading-relaxed max-w-2xl mx-auto">
             We partner with ambitious brands to grow leads, revenue, and digital authority through premium creative strategy and execution.
