@@ -190,7 +190,7 @@ export default function Home() {
                 <p className="text-gray-400 leading-relaxed mb-8">
                   Discover exactly how your website is performing across design quality, lead conversion, mobile experience, and AI visibility — and see what&apos;s possible with a strategic upgrade.
                 </p>
-                <Link href="/contact" className="inline-flex items-center gap-3 text-black font-bold px-8 py-4 rounded-full transition-all hover:scale-105" style={{ background: "#0fb8ce" }}>
+                <Link href="/free-review" className="inline-flex items-center gap-3 text-black font-bold px-8 py-4 rounded-full transition-all hover:scale-105" style={{ background: "#0fb8ce" }}>
                   Run My Free Review →
                 </Link>
               </div>
