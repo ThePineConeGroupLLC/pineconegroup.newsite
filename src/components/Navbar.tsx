@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -17,11 +17,55 @@ const ringKeyframes = `
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [showTop, setShowTop] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setShowTop(window.scrollY > 400);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <>
       <style>{ringKeyframes}</style>
-      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md" style={{ background: "rgba(11,26,24,0.95)", borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+
+      {/* Back to top button */}
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        aria-label="Back to top"
+        style={{
+          position: "fixed",
+          bottom: "2rem",
+          left: "1.5rem",
+          zIndex: 50,
+          opacity: showTop ? 1 : 0,
+          pointerEvents: showTop ? "auto" : "none",
+          transform: showTop ? "translateY(0)" : "translateY(12px)",
+          transition: "opacity 0.3s ease, transform 0.3s ease",
+          background: "rgba(11,26,24,0.9)",
+          border: "1px solid rgba(15,184,206,0.35)",
+          borderRadius: "9999px",
+          padding: "0.6rem 1rem",
+          display: "flex",
+          alignItems: "center",
+          gap: "0.4rem",
+          color: "#0fb8ce",
+          fontSize: "0.75rem",
+          fontWeight: 700,
+          letterSpacing: "0.08em",
+          backdropFilter: "blur(10px)",
+          boxShadow: "0 0 16px rgba(15,184,206,0.2)",
+          cursor: "pointer",
+          textTransform: "uppercase",
+        }}
+      >
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+          <path d="M6 10V2M2 6l4-4 4 4" stroke="#0fb8ce" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+        Top
+      </button>
+
+      <nav className="relative z-50 backdrop-blur-md" style={{ background: "rgba(11,26,24,0.95)", borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
         <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-20 md:h-28">
           <Link href="/" className="flex items-center relative group" onClick={() => setOpen(false)}>
             {/* Outer breathing ring */}
