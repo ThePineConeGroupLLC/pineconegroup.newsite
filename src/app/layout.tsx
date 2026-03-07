@@ -19,6 +19,10 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "The Pine Cone Group | Strategic Growth Agency",
   description: "Premium branding, web design, and digital strategy for ambitious brands.",
+  icons: {
+    icon: "/favicon.webp",
+    apple: "/favicon.webp",
+  },
 };
 
 export default function RootLayout({
