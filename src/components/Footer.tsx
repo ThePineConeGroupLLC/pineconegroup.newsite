@@ -26,7 +26,6 @@ export default function Footer() {
             <div className="flex flex-col gap-2 text-sm">
               <a href="mailto:admin@thepineconegroup.com" className="hover:text-white transition-colors">admin@thepineconegroup.com</a>
               <a href="tel:8508008432" className="hover:text-white transition-colors">850.800.8432</a>
-              <span>Tues–Thurs, 10am–4pm CT</span>
               <span>Serving clients nationwide</span>
               <div className="flex items-center gap-3 pt-2">
                 <a href="https://www.facebook.com/thepineconegroup" target="_blank" rel="noopener noreferrer" aria-label="Facebook"

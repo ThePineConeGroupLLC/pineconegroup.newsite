@@ -64,7 +64,6 @@ export default function ContactPage() {
                 {[
                   { label: "Email", value: "admin@thepineconegroup.com", href: "mailto:admin@thepineconegroup.com" },
                   { label: "Phone", value: "850.800.8432", href: "tel:8508008432" },
-                  { label: "Hours", value: "Tues–Thurs, 10am–4pm CT" },
                   { label: "Location", value: "Serving clients nationwide" },
                 ].map((item) => (
                   <div key={item.label}>
