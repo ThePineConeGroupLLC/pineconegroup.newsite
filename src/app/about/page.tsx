@@ -77,7 +77,7 @@ export default function AboutPage() {
             <span className="text-[#0fb8ce] uppercase tracking-[0.2em] text-xs font-bold">About Us</span>
           </div>
           <h1 className="font-playfair font-black text-white leading-tight mb-6" style={{ fontSize: "clamp(2.5rem, 8vw, 5rem)" }}>
-            We Exist to Make <span style={{ color: "#0fb8ce" }}>Premium</span> Possible
+            We Exist to Make <em style={{ color: "#F5A94C", fontStyle: "italic" }}>Premium</em> Possible
           </h1>
           <p className="text-gray-400 text-xl leading-relaxed max-w-2xl mx-auto">
             The Pine Cone Group is a strategic growth agency that partners with ambitious founders and brands to build the digital presence their business deserves.
