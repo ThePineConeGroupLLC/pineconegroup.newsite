@@ -184,9 +184,6 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2">
               {/* Left: Content */}
               <div className="p-10 md:p-14">
-                <div className="inline-flex items-center rounded-full px-5 py-2 mb-8" style={{ background: "rgba(15,184,206,0.1)", border: "1px solid rgba(15,184,206,0.3)" }}>
-                  <span className="text-[#0fb8ce] text-xs uppercase tracking-[0.2em] font-bold">Signature Tool</span>
-                </div>
                 <h2 className="font-playfair font-black text-white leading-tight mb-6" style={{ fontSize: "clamp(2rem, 5vw, 3rem)" }}>
                   Free Website Performance Review
                 </h2>
