@@ -174,6 +174,51 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Signature Tool */}
+      <section className="py-24 px-6" style={{ background: BG2, borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+        <div className="max-w-5xl mx-auto">
+          <div className="rounded-2xl overflow-hidden" style={{ background: CARD, border: "1px solid rgba(15,184,206,0.2)" }}>
+            <div className="grid grid-cols-1 md:grid-cols-2">
+              {/* Left: Content */}
+              <div className="p-10 md:p-14">
+                <div className="inline-flex items-center rounded-full px-5 py-2 mb-8" style={{ background: "rgba(15,184,206,0.1)", border: "1px solid rgba(15,184,206,0.3)" }}>
+                  <span className="text-[#0fb8ce] text-xs uppercase tracking-[0.2em] font-bold">Signature Tool</span>
+                </div>
+                <h2 className="font-playfair font-black text-white leading-tight mb-6" style={{ fontSize: "clamp(2rem, 5vw, 3rem)" }}>
+                  Free Website Performance Review
+                </h2>
+                <p className="text-gray-400 leading-relaxed mb-8">
+                  Discover exactly how your website is performing across design quality, lead conversion, mobile experience, and AI visibility — and see what&apos;s possible with a strategic upgrade.
+                </p>
+                <Link href="/contact" className="inline-flex items-center gap-3 text-black font-bold px-8 py-4 rounded-full transition-all hover:scale-105" style={{ background: "#0fb8ce" }}>
+                  Run My Free Review →
+                </Link>
+              </div>
+              {/* Right: Score Widget */}
+              <div className="p-10 md:p-14 flex flex-col justify-center gap-5" style={{ borderLeft: "1px solid rgba(255,255,255,0.07)" }}>
+                {[
+                  { label: "Performance Score", score: 72 },
+                  { label: "Design Quality", score: 58 },
+                  { label: "Lead Conversion Potential", score: 44 },
+                  { label: "Mobile Experience", score: 81 },
+                  { label: "AI Visibility", score: 35 },
+                ].map((item) => (
+                  <div key={item.label}>
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-gray-400 text-sm">{item.label}</span>
+                      <span className="text-white font-bold text-sm">{item.score}</span>
+                    </div>
+                    <div className="h-1.5 rounded-full w-full" style={{ background: "rgba(255,255,255,0.08)" }}>
+                      <div className="h-1.5 rounded-full" style={{ width: `${item.score}%`, background: "#0fb8ce" }} />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-28 text-center px-6" style={{ background: BG2, borderTop: "1px solid rgba(255,255,255,0.06)" }}>
         <div className="max-w-2xl mx-auto">
