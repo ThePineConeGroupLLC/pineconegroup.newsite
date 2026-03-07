@@ -122,7 +122,7 @@ export default function CaseStudiesPage() {
                 <div className="inline-flex items-center rounded-full px-4 py-1.5 mb-4" style={{ background: "rgba(15,184,206,0.12)", border: "1px solid rgba(15,184,206,0.25)" }}>
                   <span className="text-[#0fb8ce] text-xs uppercase tracking-[0.15em] font-bold">{cs.tag}</span>
                 </div>
-                <h2 className="font-playfair font-bold text-white text-2xl mb-1">{cs.industry}</h2>
+                <h2 className="font-playfair font-bold text-2xl mb-1" style={{ color: "#F5A94C" }}>{cs.industry}</h2>
                 <p className="text-gray-400 text-sm">{cs.client}</p>
               </div>
               <div className="p-8">
