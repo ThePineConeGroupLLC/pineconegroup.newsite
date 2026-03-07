@@ -52,7 +52,7 @@ export default function ContactPage() {
               <h2 className="font-playfair font-bold text-white text-xl mb-6">Contact Details</h2>
               <div className="space-y-4 text-sm">
                 {[
-                  { label: "Email", value: "scott@thepineconegroup.com", href: "mailto:scott@thepineconegroup.com" },
+                  { label: "Email", value: "admin@thepineconegroup.com", href: "mailto:admin@thepineconegroup.com" },
                   { label: "Phone", value: "850.800.8432", href: "tel:8508008432" },
                   { label: "Hours", value: "Tues–Thurs, 10am–4pm CT" },
                   { label: "Location", value: "Serving clients nationwide" },
