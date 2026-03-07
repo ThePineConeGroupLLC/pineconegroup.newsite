@@ -98,16 +98,16 @@ export default function Home() {
 
       {/* Hero */}
       <section className="relative min-h-screen flex items-center overflow-hidden" style={{ background: `linear-gradient(160deg, #0a1614 0%, ${BG} 60%)` }}>
-        {/* Animated background orbs */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full blur-3xl" style={{ background: "rgba(15,184,206,0.08)", animation: "pulse 6s ease-in-out infinite" }} />
-          <div className="absolute bottom-1/3 left-1/4 w-64 h-64 rounded-full blur-3xl" style={{ background: "rgba(245,169,76,0.05)", animation: "pulse 8s ease-in-out infinite 2s" }} />
+        {/* Animated background orbs — clipped inside section */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute top-1/4 right-0 w-72 h-72 md:w-96 md:h-96 rounded-full blur-3xl" style={{ background: "rgba(15,184,206,0.08)", animation: "pulse 6s ease-in-out infinite" }} />
+          <div className="absolute bottom-1/3 left-0 w-48 h-48 md:w-64 md:h-64 rounded-full blur-3xl" style={{ background: "rgba(245,169,76,0.05)", animation: "pulse 8s ease-in-out infinite 2s" }} />
         </div>
 
         <div className="relative max-w-2xl mx-auto px-6 py-28 md:py-40 text-center w-full">
           {/* Badge */}
           <div
-            className="inline-flex items-center gap-3 rounded-full px-6 py-2.5 mb-10"
+            className="inline-flex items-center gap-3 rounded-full px-4 py-2 mb-10 max-w-full"
             style={{
               background: "rgba(15,184,206,0.1)",
               border: "1px solid rgba(15,184,206,0.35)",
@@ -124,7 +124,7 @@ export default function Home() {
           <h1
             className="font-playfair font-black leading-[1.05] mb-8"
             style={{
-              fontSize: "clamp(3rem, 12vw, 5.5rem)",
+              fontSize: "clamp(2.2rem, 9vw, 5.5rem)",
               opacity: heroVisible ? 1 : 0,
               transform: heroVisible ? "translateY(0)" : "translateY(24px)",
               transition: "opacity 0.7s ease 150ms, transform 0.7s ease 150ms",
@@ -154,8 +154,8 @@ export default function Home() {
               transition: "opacity 0.7s ease 450ms, transform 0.7s ease 450ms",
             }}
           >
-            <a href="https://calendar.app.google/QZoctWL6MPGEzBds9" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 text-black font-bold px-10 py-5 rounded-full text-lg transition-all hover:scale-105 hover:shadow-lg" style={{ background: "#0fb8ce", boxShadow: "0 0 32px rgba(15,184,206,0.3)" }}>
-              Schedule a Strategy Call <span>→</span>
+            <a href="https://calendar.app.google/QZoctWL6MPGEzBds9" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-3 text-black font-bold px-8 py-4 md:px-10 md:py-5 rounded-full text-base md:text-lg transition-all hover:scale-105 hover:shadow-lg w-full sm:w-auto" style={{ background: "#0fb8ce", boxShadow: "0 0 32px rgba(15,184,206,0.3)" }}>
+              Schedule a Strategy Call →
             </a>
           </div>
         </div>
