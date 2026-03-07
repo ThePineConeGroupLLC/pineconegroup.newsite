@@ -273,7 +273,7 @@ export default function Home() {
               <div className="grid grid-cols-1 md:grid-cols-2">
                 <div className="p-7 md:p-14">
                   <h2 className="font-playfair font-black text-white leading-tight mb-6" style={{ fontSize: "clamp(1.6rem, 5vw, 3rem)" }}>
-                    Free Website Performance Review
+                    Free Website Performance <em style={{ color: "#F5A94C", fontStyle: "italic" }}>Review</em>
                   </h2>
                   <p className="text-gray-400 leading-relaxed mb-8">
                     Discover exactly how your website is performing across design quality, lead conversion, mobile experience, and AI visibility — and see what&apos;s possible with a strategic upgrade.
