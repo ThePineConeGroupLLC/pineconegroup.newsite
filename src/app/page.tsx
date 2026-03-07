@@ -162,8 +162,14 @@ export default function Home() {
       </section>
 
       {/* Logo Showcase */}
-      <section className="py-4" style={{ background: BG2, borderTop: "1px solid rgba(255,255,255,0.05)" }}>
-        <div className="elfsight-app-d614c863-fdbb-4579-93d7-930fc8e2efd3" data-elfsight-app-lazy />
+      <section className="py-10" style={{ background: BG2, borderTop: "1px solid rgba(255,255,255,0.05)", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+        <div className="relative">
+          {/* Left fade */}
+          <div className="absolute left-0 top-0 bottom-0 w-24 md:w-40 z-10 pointer-events-none" style={{ background: `linear-gradient(to right, ${BG2}, transparent)` }} />
+          {/* Right fade */}
+          <div className="absolute right-0 top-0 bottom-0 w-24 md:w-40 z-10 pointer-events-none" style={{ background: `linear-gradient(to left, ${BG2}, transparent)` }} />
+          <div className="elfsight-app-d614c863-fdbb-4579-93d7-930fc8e2efd3" data-elfsight-app-lazy />
+        </div>
       </section>
 
       {/* Stats */}
