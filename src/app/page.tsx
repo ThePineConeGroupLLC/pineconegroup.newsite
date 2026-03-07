@@ -169,14 +169,14 @@ export default function Home() {
       {/* Stats */}
       <section style={{ background: BG, borderTop: "1px solid rgba(255,255,255,0.06)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
         <div className="max-w-5xl mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4" style={{ borderLeft: "1px solid rgba(255,255,255,0.06)" }}>
+          <div className="grid grid-cols-2 md:grid-cols-4">
             {[
               { value: "3x", label: "Average lead increase for clients" },
               { value: "94%", label: "Client satisfaction rate" },
               { value: "180%", label: "Average conversion lift" },
               { value: "400+", label: "Brands transformed" },
             ].map((s) => (
-              <div key={s.label} style={{ borderRight: "1px solid rgba(255,255,255,0.06)" }}>
+              <div key={s.label}>
                 <StatItem value={s.value} label={s.label} />
               </div>
             ))}
