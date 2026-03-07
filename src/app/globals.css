@@ -142,45 +142,66 @@ nextjs-portal {
 
 /* CTA button animations */
 @keyframes cta-shimmer {
-  0% { transform: translateX(-200%) skewX(-15deg); }
-  100% { transform: translateX(500%) skewX(-15deg); }
+  0%   { transform: translateX(-100%) skewX(-15deg); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translateX(300%) skewX(-15deg); opacity: 0; }
 }
 
 @keyframes cta-glow-pulse {
-  0%, 100% { opacity: 0.85; }
-  50% { opacity: 1; }
+  0%, 100% {
+    box-shadow:
+      0 0 20px rgba(15,184,206,0.5),
+      0 0 40px rgba(15,184,206,0.2),
+      inset 0 1px 0 rgba(255,255,255,0.2);
+  }
+  50% {
+    box-shadow:
+      0 0 40px rgba(15,184,206,0.9),
+      0 0 80px rgba(15,184,206,0.4),
+      0 0 120px rgba(15,184,206,0.15),
+      inset 0 1px 0 rgba(255,255,255,0.3);
+  }
 }
 
 .cta-btn {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #0fb8ce 0%, #0dd4ed 50%, #0fb8ce 100%) !important;
-  box-shadow: 0 0 28px rgba(15,184,206,0.5), 0 0 56px rgba(15,184,206,0.2), inset 0 1px 0 rgba(255,255,255,0.25) !important;
-  animation: cta-glow-pulse 2.5s ease-in-out infinite;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease !important;
-  will-change: opacity;
-  isolation: isolate;
+  background: linear-gradient(135deg, #0fb8ce 0%, #12d4ed 50%, #0fb8ce 100%) !important;
+  animation: cta-glow-pulse 2.2s ease-in-out infinite;
+  transition: transform 0.2s ease !important;
+  will-change: box-shadow;
 }
 
 .cta-btn::before {
   content: "";
   position: absolute;
-  top: 0;
+  top: -10%;
   left: 0;
-  width: 30%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-  animation: cta-shimmer 2.8s ease-in-out infinite;
+  width: 40%;
+  height: 120%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255,255,255,0.15) 40%,
+    rgba(255,255,255,0.45) 50%,
+    rgba(255,255,255,0.15) 60%,
+    transparent 100%
+  );
+  animation: cta-shimmer 2.6s ease-in-out infinite;
   pointer-events: none;
 }
 
 .cta-btn:hover {
   transform: scale(1.06) translateY(-2px) !important;
-  box-shadow: 0 0 48px rgba(15,184,206,0.8), 0 8px 24px rgba(15,184,206,0.35) !important;
   animation: none;
-  opacity: 1;
+  box-shadow:
+    0 0 50px rgba(15,184,206,1),
+    0 0 90px rgba(15,184,206,0.5),
+    0 10px 30px rgba(15,184,206,0.3),
+    inset 0 1px 0 rgba(255,255,255,0.3) !important;
 }
 
 .cta-btn:active {
-  transform: scale(0.98) translateY(0px) !important;
+  transform: scale(0.97) translateY(0) !important;
 }
