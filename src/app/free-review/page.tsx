@@ -281,8 +281,7 @@ export default function FreeReviewPage() {
                     />
                     <button
                       type="submit"
-                      className="text-black font-bold px-8 py-4 rounded-xl transition-all hover:scale-105 w-full sm:w-auto"
-                      style={{ background: "#0fb8ce" }}
+                      className="cta-btn text-black font-bold px-8 py-4 rounded-xl w-full sm:w-auto"
                     >
                       Analyze →
                     </button>

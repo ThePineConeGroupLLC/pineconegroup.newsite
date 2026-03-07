@@ -154,7 +154,7 @@ export default function ContactPage() {
                     <label className="block text-xs uppercase tracking-widest text-gray-400 mb-2">Tell Us About Your Goals *</label>
                     <textarea name="message" required rows={5} className={`${inputClass} resize-none`} style={inputStyle} placeholder="What are you looking to achieve? What challenges are you facing?" />
                   </div>
-                  <button type="submit" className="w-full text-black font-bold py-4 rounded-full transition-all hover:scale-[1.02] text-lg" style={{ background: "#0fb8ce" }}>
+                  <button type="submit" className="cta-btn w-full text-black font-bold py-4 rounded-full text-lg">
                     Send Message →
                   </button>
                 </form>
