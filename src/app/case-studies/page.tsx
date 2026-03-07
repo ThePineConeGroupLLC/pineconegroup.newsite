@@ -171,7 +171,7 @@ export default function CaseStudiesPage() {
         <div className="max-w-2xl mx-auto">
           <p className="text-[#0fb8ce] uppercase tracking-[0.2em] text-xs font-bold mb-6">Your Turn</p>
           <h2 className="font-playfair font-black text-white mb-6 leading-tight" style={{ fontSize: "clamp(2.5rem, 7vw, 4rem)" }}>
-            Want Results Like These?
+            Want Results Like <em style={{ color: "#F5A94C", fontStyle: "italic" }}>These?</em>
           </h2>
           <p className="text-gray-400 text-lg mb-12">Let&apos;s talk about what&apos;s possible for your business.</p>
           <a href="https://calendar.app.google/QZoctWL6MPGEzBds9" target="_blank" rel="noopener noreferrer" className="cta-btn inline-flex items-center gap-3 text-black font-bold px-12 py-5 rounded-full text-lg">
