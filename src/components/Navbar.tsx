@@ -17,6 +17,7 @@ export default function Navbar() {
 
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-8 text-sm text-gray-400">
+            <Link href="/" className="hover:text-white transition-colors tracking-wide">Home</Link>
             <Link href="/services" className="hover:text-white transition-colors tracking-wide">Services</Link>
             <Link href="/case-studies" className="hover:text-white transition-colors tracking-wide">Case Studies</Link>
             <Link href="/about" className="hover:text-white transition-colors tracking-wide">About</Link>
@@ -57,6 +58,7 @@ export default function Navbar() {
           {/* Menu links */}
           <div className="flex flex-col px-8 py-10 gap-2 flex-1">
             {[
+              { label: "Home", href: "/" },
               { label: "Services", href: "/services" },
               { label: "Case Studies", href: "/case-studies" },
               { label: "About", href: "/about" },
