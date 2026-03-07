@@ -313,7 +313,7 @@ export default function Home() {
         <FadeIn className="relative max-w-2xl mx-auto">
           <p className="text-[#0fb8ce] uppercase tracking-[0.2em] text-xs font-bold mb-6">Ready to Grow?</p>
           <h2 className="font-playfair font-black text-white mb-6 leading-tight" style={{ fontSize: "clamp(2.5rem, 7vw, 4.5rem)" }}>
-            Let&apos;s Build Something Remarkable
+            Let&apos;s Build Something <em style={{ color: "#F5A94C", fontStyle: "italic" }}>Remarkable</em>
           </h2>
           <p className="text-gray-400 text-lg mb-12 leading-relaxed">
             Schedule a free strategy call and discover exactly what&apos;s possible for your brand.
