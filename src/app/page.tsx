@@ -154,9 +154,9 @@ export default function Home() {
               transition: "opacity 0.7s ease 450ms, transform 0.7s ease 450ms",
             }}
           >
-            <Link href="/contact" className="inline-flex items-center gap-3 text-black font-bold px-10 py-5 rounded-full text-lg transition-all hover:scale-105 hover:shadow-lg" style={{ background: "#0fb8ce", boxShadow: "0 0 32px rgba(15,184,206,0.3)" }}>
+            <a href="https://calendar.app.google/QZoctWL6MPGEzBds9" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 text-black font-bold px-10 py-5 rounded-full text-lg transition-all hover:scale-105 hover:shadow-lg" style={{ background: "#0fb8ce", boxShadow: "0 0 32px rgba(15,184,206,0.3)" }}>
               Schedule a Strategy Call <span>→</span>
-            </Link>
+            </a>
           </div>
         </div>
       </section>
@@ -310,9 +310,9 @@ export default function Home() {
           <p className="text-gray-400 text-lg mb-12 leading-relaxed">
             Schedule a free strategy call and discover exactly what&apos;s possible for your brand.
           </p>
-          <Link href="/contact" className="inline-flex items-center gap-3 text-black font-bold px-12 py-5 rounded-full text-lg transition-all hover:scale-105" style={{ background: "#0fb8ce", boxShadow: "0 0 40px rgba(15,184,206,0.35)" }}>
+          <a href="https://calendar.app.google/QZoctWL6MPGEzBds9" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 text-black font-bold px-12 py-5 rounded-full text-lg transition-all hover:scale-105" style={{ background: "#0fb8ce", boxShadow: "0 0 40px rgba(15,184,206,0.35)" }}>
             Schedule a Strategy Call →
-          </Link>
+          </a>
         </FadeIn>
       </section>
 

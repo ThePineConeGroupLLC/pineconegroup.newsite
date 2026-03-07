@@ -383,13 +383,15 @@ export default function FreeReviewPage() {
                   This automated scan is just the beginning. Schedule a free 15-minute strategy call and we&apos;ll walk you through a complete, handcrafted review — with specific recommendations to grow your leads and revenue.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Link
-                    href="/contact"
+                  <a
+                    href="https://calendar.app.google/QZoctWL6MPGEzBds9"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-3 text-black font-bold px-10 py-4 rounded-full transition-all hover:scale-105"
                     style={{ background: "#0fb8ce" }}
                   >
                     Schedule My Free Strategy Call →
-                  </Link>
+                  </a>
                   <button
                     onClick={handleReset}
                     className="inline-flex items-center justify-center gap-3 font-semibold px-10 py-4 rounded-full transition-all hover:scale-105"

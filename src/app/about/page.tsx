@@ -186,9 +186,9 @@ export default function AboutPage() {
             Ready to Work Together?
           </h2>
           <p className="text-gray-400 text-lg mb-12">Let&apos;s build something remarkable.</p>
-          <Link href="/contact" className="inline-flex items-center gap-3 text-black font-bold px-12 py-5 rounded-full text-lg transition-all hover:scale-105" style={{ background: "#0fb8ce" }}>
+          <a href="https://calendar.app.google/QZoctWL6MPGEzBds9" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 text-black font-bold px-12 py-5 rounded-full text-lg transition-all hover:scale-105" style={{ background: "#0fb8ce" }}>
             Schedule a Strategy Call →
-          </Link>
+          </a>
         </div>
       </section>
 
