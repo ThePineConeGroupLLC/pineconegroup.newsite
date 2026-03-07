@@ -8,41 +8,83 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md" style={{ background: "rgba(8,14,20,0.92)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-16">
-        <Link href="/" className="flex items-center">
-          <Image src="/logo.webp" alt="The Pine Cone Group" width={80} height={80} className="h-12 w-auto" />
-        </Link>
-        <div className="hidden md:flex items-center gap-8 text-sm text-gray-400">
-          <Link href="/services" className="hover:text-white transition-colors">Services</Link>
-          <Link href="/case-studies" className="hover:text-white transition-colors">Case Studies</Link>
-          <Link href="/about" className="hover:text-white transition-colors">About</Link>
-          <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
-          <Link href="/contact" className="bg-[#0fb8ce] hover:bg-[#0da3b8] text-black font-bold px-5 py-2 rounded-full transition-colors ml-2 text-xs uppercase tracking-wide">
-            Free Review
+    <>
+      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md" style={{ background: "rgba(11,26,24,0.95)", borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+        <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-20">
+          <Link href="/" className="flex items-center" onClick={() => setOpen(false)}>
+            <Image src="/logo.webp" alt="The Pine Cone Group" width={100} height={100} className="h-14 w-auto" />
           </Link>
+
+          {/* Desktop nav */}
+          <div className="hidden md:flex items-center gap-8 text-sm text-gray-400">
+            <Link href="/services" className="hover:text-white transition-colors tracking-wide">Services</Link>
+            <Link href="/case-studies" className="hover:text-white transition-colors tracking-wide">Case Studies</Link>
+            <Link href="/about" className="hover:text-white transition-colors tracking-wide">About</Link>
+            <Link href="/contact" className="hover:text-white transition-colors tracking-wide">Contact</Link>
+            <Link href="/contact" className="font-bold px-6 py-2.5 rounded-full transition-all hover:scale-105 text-xs uppercase tracking-widest text-black ml-2" style={{ background: "#0fb8ce" }}>
+              Free Review
+            </Link>
+          </div>
+
+          {/* Hamburger */}
+          <button className="md:hidden text-white p-1" onClick={() => setOpen(!open)} aria-label="Toggle menu">
+            <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+              {open ? (
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              )}
+            </svg>
+          </button>
         </div>
-        <button className="md:hidden text-white" onClick={() => setOpen(!open)}>
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            {open ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
-        </button>
-      </div>
+      </nav>
+
+      {/* Mobile full-screen menu */}
       {open && (
-        <div className="md:hidden px-6 py-4 flex flex-col gap-4 text-gray-400 text-sm" style={{ background: "rgba(8,14,20,0.98)", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
-          <Link href="/services" onClick={() => setOpen(false)} className="hover:text-white">Services</Link>
-          <Link href="/case-studies" onClick={() => setOpen(false)} className="hover:text-white">Case Studies</Link>
-          <Link href="/about" onClick={() => setOpen(false)} className="hover:text-white">About</Link>
-          <Link href="/contact" onClick={() => setOpen(false)} className="hover:text-white">Contact</Link>
-          <Link href="/contact" onClick={() => setOpen(false)} className="bg-[#0fb8ce] text-black font-bold px-5 py-2 rounded-full text-center text-xs uppercase tracking-wide">
-            Free Review
-          </Link>
+        <div className="fixed inset-0 z-40 flex flex-col" style={{ background: "#0b1a18" }}>
+          {/* Top bar matching navbar */}
+          <div className="px-6 flex items-center justify-between h-20" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+            <Link href="/" onClick={() => setOpen(false)}>
+              <Image src="/logo.webp" alt="The Pine Cone Group" width={100} height={100} className="h-14 w-auto" />
+            </Link>
+            <button onClick={() => setOpen(false)} className="text-white p-1">
+              <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+
+          {/* Menu links */}
+          <div className="flex flex-col px-8 py-10 gap-2 flex-1">
+            {[
+              { label: "Services", href: "/services" },
+              { label: "Case Studies", href: "/case-studies" },
+              { label: "About", href: "/about" },
+              { label: "Contact", href: "/contact" },
+            ].map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
+                onClick={() => setOpen(false)}
+                className="font-playfair font-bold text-white py-4 text-4xl border-b transition-colors hover:text-[#0fb8ce]"
+                style={{ borderColor: "rgba(255,255,255,0.07)" }}
+              >
+                {item.label}
+              </Link>
+            ))}
+            <div className="mt-8">
+              <Link
+                href="/contact"
+                onClick={() => setOpen(false)}
+                className="inline-flex items-center gap-3 text-black font-bold px-8 py-4 rounded-full text-sm uppercase tracking-widest"
+                style={{ background: "#0fb8ce" }}
+              >
+                Get a Free Review →
+              </Link>
+            </div>
+          </div>
         </div>
       )}
-    </nav>
+    </>
   );
 }
