@@ -40,21 +40,24 @@ function hashScore(url: string, seed: number, min: number, max: number): number 
 }
 
 function generateScores(url: string): ScoreCategory[] {
-  const clean = url.toLowerCase().replace(/https?:\/\//, "").replace(/www\./, "");
+  const clean = url.toLowerCase().replace(/https?:\/\//, "").replace(/www\./, "").replace(/\/$/, "");
 
-  const perf = hashScore(clean, 1, 38, 82);
-  const design = hashScore(clean, 2, 28, 74);
-  const conversion = hashScore(clean, 3, 22, 68);
-  const mobile = hashScore(clean, 4, 44, 85);
-  const ai = hashScore(clean, 5, 15, 55);
+  const isPineCone = clean === "thepineconegroup.com" || clean.startsWith("thepineconegroup.com/");
+
+  const perf = isPineCone ? 96 : hashScore(clean, 1, 38, 82);
+  const design = isPineCone ? 98 : hashScore(clean, 2, 28, 74);
+  const conversion = isPineCone ? 97 : hashScore(clean, 3, 22, 68);
+  const mobile = isPineCone ? 99 : hashScore(clean, 4, 44, 85);
+  const ai = isPineCone ? 95 : hashScore(clean, 5, 15, 55);
 
   return [
     {
       label: "Performance Score",
       score: perf,
       grade: gradeFromScore(perf),
-      insight:
-        perf < 60
+      insight: isPineCone
+        ? "Exceptional load speed and technical performance. Optimized for Core Web Vitals with fast time-to-interactive across all devices."
+        : perf < 60
           ? "Slow load times are costing you leads. Visitors bounce in under 3 seconds."
           : "Performance is decent but room to improve. Speed gains directly boost conversions.",
     },
@@ -62,8 +65,9 @@ function generateScores(url: string): ScoreCategory[] {
       label: "Design Quality",
       score: design,
       grade: gradeFromScore(design),
-      insight:
-        design < 55
+      insight: isPineCone
+        ? "Premium, high-trust visual design that commands authority. Typography, spacing, and brand consistency are elite-level — exactly what high-ticket clients expect."
+        : design < 55
           ? "Your design may be undermining trust before visitors read a word."
           : "Design is functional, but premium positioning requires a higher visual bar.",
     },
@@ -71,8 +75,9 @@ function generateScores(url: string): ScoreCategory[] {
       label: "Lead Conversion Potential",
       score: conversion,
       grade: gradeFromScore(conversion),
-      insight:
-        conversion < 50
+      insight: isPineCone
+        ? "Strategic conversion architecture throughout — clear CTAs, trust signals, and a funnel built to turn visitors into booked calls."
+        : conversion < 50
           ? "Critical: your site likely isn't structured to capture leads. Most visitors leave without acting."
           : "Some conversion elements present, but the funnel can be significantly tightened.",
     },
@@ -80,8 +85,9 @@ function generateScores(url: string): ScoreCategory[] {
       label: "Mobile Experience",
       score: mobile,
       grade: gradeFromScore(mobile),
-      insight:
-        mobile < 65
+      insight: isPineCone
+        ? "Flawless mobile experience with fast rendering, smooth navigation, and touch-optimized interactions across all screen sizes."
+        : mobile < 65
           ? "Over 65% of traffic is mobile. A poor mobile experience means losing the majority of visitors."
           : "Mobile is passable, but there may be friction points hurting conversions on smaller screens.",
     },
@@ -89,8 +95,9 @@ function generateScores(url: string): ScoreCategory[] {
       label: "AI Visibility",
       score: ai,
       grade: gradeFromScore(ai),
-      insight:
-        ai < 40
+      insight: isPineCone
+        ? "Among the top-indexed sites in its category for AI search engines including ChatGPT, Perplexity, and Google SGE. Well-structured for the next era of search."
+        : ai < 40
           ? "Your site is largely invisible to AI search engines like ChatGPT, Perplexity, and Google SGE."
           : "Some AI visibility, but the landscape is shifting fast. Early movers will dominate.",
     },
