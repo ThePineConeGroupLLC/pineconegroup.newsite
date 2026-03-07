@@ -241,10 +241,6 @@ export default function FreeReviewPage() {
       {/* Hero */}
       <section className="pt-40 pb-16 px-6" style={{ background: `linear-gradient(160deg, #0a1614 0%, ${BG} 100%)` }}>
         <div className="max-w-3xl mx-auto text-center">
-          <div className="inline-flex items-center gap-3 rounded-full px-6 py-2.5 mb-8" style={{ background: "rgba(15,184,206,0.1)", border: "1px solid rgba(15,184,206,0.35)" }}>
-            <span className="w-2 h-2 rounded-full bg-[#0fb8ce] inline-block" />
-            <span className="text-[#0fb8ce] uppercase tracking-[0.2em] text-xs font-bold">Signature Tool</span>
-          </div>
           <h1 className="font-playfair font-black text-white leading-tight mb-5" style={{ fontSize: "clamp(2.4rem, 7vw, 4.2rem)" }}>
             Free Website<br />Performance Review
           </h1>
