@@ -380,7 +380,7 @@ export default function FreeReviewPage() {
                   Get Your Full Strategy Report
                 </h2>
                 <p className="text-gray-400 mb-8 leading-relaxed max-w-xl mx-auto">
-                  This automated scan is just the beginning. Schedule a free 30-minute strategy call and we&apos;ll walk you through a complete, handcrafted review — with specific recommendations to grow your leads and revenue.
+                  This automated scan is just the beginning. Schedule a free 15-minute strategy call and we&apos;ll walk you through a complete, handcrafted review — with specific recommendations to grow your leads and revenue.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Link

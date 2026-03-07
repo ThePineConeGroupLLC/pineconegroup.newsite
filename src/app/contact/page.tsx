@@ -70,7 +70,7 @@ export default function ContactPage() {
             <div className="rounded-2xl p-7" style={{ background: CARD, border: "1px solid rgba(255,255,255,0.07)" }}>
               <h2 className="font-playfair font-bold text-white text-xl mb-5">What to Expect</h2>
               <ul className="space-y-3 text-sm text-gray-400">
-                {["Response within one business day", "Complimentary 30-minute strategy call", "Honest recommendations", "No pressure approach", "Clear next steps"].map((item) => (
+                {["Response within one business day", "Complimentary 15-minute strategy call", "Honest recommendations", "No pressure approach", "Clear next steps"].map((item) => (
                   <li key={item} className="flex items-start gap-3">
                     <span className="text-[#0fb8ce] font-bold">✓</span>{item}
                   </li>
