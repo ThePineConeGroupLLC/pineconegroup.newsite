@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -9,8 +10,8 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md" style={{ background: "rgba(8,14,20,0.92)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-16">
-        <Link href="/" className="flex items-center gap-2">
-          <span className="font-playfair text-white font-bold text-lg tracking-tight">The Pine Cone Group</span>
+        <Link href="/" className="flex items-center">
+          <Image src="/logo.webp" alt="The Pine Cone Group" width={80} height={80} className="h-12 w-auto" />
         </Link>
         <div className="hidden md:flex items-center gap-8 text-sm text-gray-400">
           <Link href="/services" className="hover:text-white transition-colors">Services</Link>
