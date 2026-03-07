@@ -5,6 +5,10 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
+const BG = "#0b1a18";
+const BG2 = "#0f2320";
+const CARD = "#132420";
+
 function useCounter(target: number, duration = 2000, start = false) {
   const [count, setCount] = useState(0);
   useEffect(() => {
@@ -45,47 +49,58 @@ function AnimatedStat({ value, label }: { value: string; label: string }) {
   }, []);
 
   return (
-    <div ref={ref} className="text-center">
-      <div className="text-4xl md:text-5xl font-bold text-[#0fb8ce] mb-2">
+    <div ref={ref} className="text-center py-8">
+      <div className="font-playfair font-black text-[#0fb8ce] mb-2 leading-none" style={{ fontSize: "clamp(2.5rem, 8vw, 4rem)" }}>
         {rawNum ? `${prefix}${displayNum}${suffix}` : value}
       </div>
-      <div className="text-gray-400 text-sm uppercase tracking-wide">{label}</div>
+      <div className="text-gray-400 text-xs uppercase tracking-widest">{label}</div>
     </div>
   );
 }
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-black text-white font-sans">
+    <div className="min-h-screen text-white" style={{ background: BG }}>
       <Navbar />
 
       {/* Hero */}
-      <section className="pt-32 pb-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <p className="text-[#0fb8ce] uppercase tracking-widest text-sm font-semibold mb-4">About Us</p>
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">We Exist to Make Premium Possible</h1>
-          <p className="text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto">
+      <section className="pt-40 pb-24 px-6" style={{ background: `linear-gradient(160deg, #0a1614 0%, ${BG} 100%)` }}>
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="text-[#0fb8ce] uppercase tracking-[0.2em] text-xs font-bold mb-5">About Us</p>
+          <h1 className="font-playfair font-black text-white leading-tight mb-6" style={{ fontSize: "clamp(2.5rem, 8vw, 5rem)" }}>
+            We Exist to Make Premium Possible
+          </h1>
+          <p className="text-gray-400 text-xl leading-relaxed max-w-2xl mx-auto">
             The Pine Cone Group is a strategic growth agency that partners with ambitious founders and brands to build the digital presence their business deserves.
           </p>
         </div>
       </section>
 
       {/* Stats */}
-      <section className="py-20 bg-gray-950">
+      <section style={{ background: BG2, borderTop: "1px solid rgba(255,255,255,0.06)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
         <div className="max-w-5xl mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
-            <AnimatedStat value="400+" label="Brands Transformed" />
-            <AnimatedStat value="94%" label="Client Satisfaction Rate" />
-            <AnimatedStat value="180%" label="Avg. Conversion Lift" />
-            <AnimatedStat value="$2M+" label="Additional Revenue Generated" />
+          <div className="grid grid-cols-2 md:grid-cols-4" style={{ borderLeft: "1px solid rgba(255,255,255,0.06)" }}>
+            {[
+              { value: "400+", label: "Brands Transformed" },
+              { value: "94%", label: "Client Satisfaction Rate" },
+              { value: "180%", label: "Avg. Conversion Lift" },
+              { value: "$2M+", label: "Additional Revenue Generated" },
+            ].map((s) => (
+              <div key={s.label} style={{ borderRight: "1px solid rgba(255,255,255,0.06)" }}>
+                <AnimatedStat value={s.value} label={s.label} />
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Philosophy */}
-      <section className="py-20 bg-gray-900">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-3xl font-bold mb-6">Design and Strategy Must Work as One</h2>
+      <section className="py-20 px-6" style={{ background: BG }}>
+        <div className="max-w-4xl mx-auto">
+          <p className="text-[#0fb8ce] uppercase tracking-[0.2em] text-xs font-bold mb-5">Our Philosophy</p>
+          <h2 className="font-playfair font-black text-white mb-8 leading-tight" style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)" }}>
+            Design and Strategy Must Work as One
+          </h2>
           <p className="text-gray-400 text-lg leading-relaxed mb-6">
             Most agencies separate strategy and design — and that's exactly why so many websites fail. You either get a beautiful site that doesn't convert, or a strategic plan with no visual execution to match it.
           </p>
@@ -96,9 +111,12 @@ export default function AboutPage() {
       </section>
 
       {/* Why It Matters */}
-      <section className="py-20 bg-gray-950">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-3xl font-bold mb-6">Your Website Is Your First Impression. And Your Sales Team.</h2>
+      <section className="py-20 px-6" style={{ background: BG2 }}>
+        <div className="max-w-4xl mx-auto">
+          <p className="text-[#0fb8ce] uppercase tracking-[0.2em] text-xs font-bold mb-5">Why It Matters</p>
+          <h2 className="font-playfair font-black text-white mb-8 leading-tight" style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)" }}>
+            Your Website Is Your First Impression. And Your Sales Team.
+          </h2>
           <p className="text-gray-400 text-lg leading-relaxed mb-6">
             Buyers research online before ever engaging. Most brands are losing leads, clients, and revenue every day — and they don't even know it. The gap between how good your business actually is and how it appears online is costing you more than you realize.
           </p>
@@ -109,10 +127,13 @@ export default function AboutPage() {
       </section>
 
       {/* Core Values */}
-      <section className="py-20 bg-gray-900">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-center text-3xl font-bold mb-14">Our Core Values</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <section className="py-20 px-6" style={{ background: BG }}>
+        <div className="max-w-6xl mx-auto">
+          <p className="text-[#0fb8ce] uppercase tracking-[0.2em] text-xs font-bold mb-5">What We Stand For</p>
+          <h2 className="font-playfair font-black text-white mb-14 leading-tight" style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)" }}>
+            Our Core Values
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               { title: "Strategy Before Aesthetics", desc: "Beautiful design is meaningless without a strategic foundation. We start with goals, not looks." },
               { title: "Design That Does Business", desc: "Every visual element exists to serve a business objective. No decoration for decoration's sake." },
@@ -121,9 +142,10 @@ export default function AboutPage() {
               { title: "Long-Term Relationships", desc: "We're not project vendors. We're growth partners invested in your success beyond the launch date." },
               { title: "Results That Speak", desc: "We measure success by what happens after launch — leads, revenue, and growth for our clients." },
             ].map((v) => (
-              <div key={v.title} className="border-l-4 border-[#0fb8ce] pl-6 py-2">
-                <h3 className="text-lg font-bold mb-2">{v.title}</h3>
-                <p className="text-gray-400 leading-relaxed text-sm">{v.desc}</p>
+              <div key={v.title} className="rounded-2xl p-7" style={{ background: CARD, border: "1px solid rgba(255,255,255,0.07)" }}>
+                <div className="w-8 h-0.5 bg-[#0fb8ce] mb-5" />
+                <h3 className="font-playfair font-bold text-white text-xl mb-3">{v.title}</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">{v.desc}</p>
               </div>
             ))}
           </div>
@@ -131,11 +153,13 @@ export default function AboutPage() {
       </section>
 
       {/* Who We Work With */}
-      <section className="py-20 bg-gray-900 text-white">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold mb-6">Who We Work With</h2>
-          <p className="text-gray-300 text-lg mb-12">We partner with brands that are serious about growth and ready to invest in premium positioning.</p>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 text-left">
+      <section className="py-20 px-6" style={{ background: BG2 }}>
+        <div className="max-w-4xl mx-auto">
+          <p className="text-[#0fb8ce] uppercase tracking-[0.2em] text-xs font-bold mb-5">Ideal Partners</p>
+          <h2 className="font-playfair font-black text-white mb-12 leading-tight" style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)" }}>
+            Who We Work With
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
               "Founders & owners using positioning strategically",
               "Service businesses avoiding price competition",
@@ -144,8 +168,8 @@ export default function AboutPage() {
               "Professional practices",
               "Growth-stage companies",
             ].map((t) => (
-              <div key={t} className="flex items-start gap-3">
-                <span className="text-[#0fb8ce] mt-1">✓</span>
+              <div key={t} className="flex items-center gap-4 rounded-xl p-4" style={{ background: CARD, border: "1px solid rgba(255,255,255,0.07)" }}>
+                <span className="text-[#0fb8ce] text-lg font-bold">✓</span>
                 <span className="text-gray-300 text-sm">{t}</span>
               </div>
             ))}
@@ -154,12 +178,15 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-[#0fb8ce] text-white text-center">
-        <div className="max-w-3xl mx-auto px-6">
-          <h2 className="text-4xl font-bold mb-4">Ready to Work Together?</h2>
-          <p className="text-xl mb-10 opacity-90">Let&apos;s build something remarkable.</p>
-          <Link href="/contact" className="bg-gray-900 text-[#0fb8ce] font-bold px-10 py-4 rounded-full hover:bg-gray-100 transition-colors text-lg inline-block">
-            Schedule a Strategy Call
+      <section className="py-28 text-center px-6" style={{ background: BG, borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+        <div className="max-w-2xl mx-auto">
+          <p className="text-[#0fb8ce] uppercase tracking-[0.2em] text-xs font-bold mb-6">Ready to Grow?</p>
+          <h2 className="font-playfair font-black text-white mb-6 leading-tight" style={{ fontSize: "clamp(2.5rem, 7vw, 4rem)" }}>
+            Ready to Work Together?
+          </h2>
+          <p className="text-gray-400 text-lg mb-12">Let&apos;s build something remarkable.</p>
+          <Link href="/contact" className="inline-flex items-center gap-3 text-black font-bold px-12 py-5 rounded-full text-lg transition-all hover:scale-105" style={{ background: "#0fb8ce" }}>
+            Schedule a Strategy Call →
           </Link>
         </div>
       </section>

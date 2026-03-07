@@ -1,16 +1,18 @@
 import Link from "next/link";
 
+const BG = "#0b1a18";
+
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-400 py-16">
+    <footer style={{ background: BG, borderTop: "1px solid rgba(255,255,255,0.06)" }} className="text-gray-400 py-16">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
           <div>
-            <div className="text-white font-bold text-lg mb-3">The Pine Cone Group</div>
+            <div className="font-playfair text-white font-bold text-lg mb-3">The Pine Cone Group</div>
             <p className="text-sm leading-relaxed">Strategic Growth. Premium Craft. Measurable Results.</p>
           </div>
           <div>
-            <div className="text-white font-semibold mb-3">Navigation</div>
+            <div className="text-white font-semibold mb-3 text-sm uppercase tracking-widest">Navigation</div>
             <div className="flex flex-col gap-2 text-sm">
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
               <Link href="/services" className="hover:text-white transition-colors">Services</Link>
@@ -20,7 +22,7 @@ export default function Footer() {
             </div>
           </div>
           <div>
-            <div className="text-white font-semibold mb-3">Get In Touch</div>
+            <div className="text-white font-semibold mb-3 text-sm uppercase tracking-widest">Get In Touch</div>
             <div className="flex flex-col gap-2 text-sm">
               <a href="mailto:scott@thepineconegroup.com" className="hover:text-white transition-colors">scott@thepineconegroup.com</a>
               <a href="tel:8508008432" className="hover:text-white transition-colors">850.800.8432</a>
@@ -29,7 +31,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="border-t border-white/10 pt-6 text-sm text-center">
+        <div className="pt-6 text-sm text-center" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
           © {new Date().getFullYear()} The Pine Cone Group LLC. All rights reserved.
         </div>
       </div>
