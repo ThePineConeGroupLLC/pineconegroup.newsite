@@ -133,9 +133,9 @@ export default function Home() {
             }}
           >
             <span className="text-white">Your Brand.</span><br />
-            <span className="text-[#0fb8ce]">Elevated.</span><br />
+            <span className="text-[#0fb8ce] italic">Elevated.</span><br />
             <span className="text-white">Your Growth.</span><br />
-            <span style={{ color: "#F5A94C" }}>Accelerated.</span>
+            <span className="italic" style={{ color: "#F5A94C" }}>Accelerated.</span>
           </h1>
 
           <p
