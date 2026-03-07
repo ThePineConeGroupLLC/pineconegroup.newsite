@@ -172,7 +172,7 @@ nextjs-portal {
   background: linear-gradient(135deg, #0fb8ce 0%, #12d4ed 50%, #0fb8ce 100%) !important;
   animation: cta-glow-pulse 2.2s ease-in-out infinite;
   transition: transform 0.2s ease !important;
-  will-change: box-shadow;
+  will-change: transform;
 }
 
 .cta-btn::before {

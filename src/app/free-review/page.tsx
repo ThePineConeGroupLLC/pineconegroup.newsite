@@ -235,7 +235,7 @@ export default function FreeReviewPage() {
   try { displayDomain = new URL(cleanUrl).hostname.replace(/^www\./, ""); } catch {}
 
   return (
-    <div className="min-h-screen text-white overflow-x-hidden" style={{ background: BG, fontFamily: "var(--font-inter)" }}>
+    <div className="min-h-screen text-white overflow-x-clip" style={{ background: BG, fontFamily: "var(--font-inter)" }}>
       <Navbar />
 
       {/* Hero */}

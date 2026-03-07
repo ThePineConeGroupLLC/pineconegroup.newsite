@@ -29,7 +29,7 @@ export default function ContactPage() {
   const inputStyle = { background: CARD, border: "1px solid rgba(255,255,255,0.1)" };
 
   return (
-    <div className="min-h-screen text-white overflow-x-hidden" style={{ background: BG }}>
+    <div className="min-h-screen text-white overflow-x-clip" style={{ background: BG }}>
       <Navbar />
 
       {/* Hero */}

@@ -19,7 +19,7 @@ const services = [
 
 export default function ServicesPage() {
   return (
-    <div className="min-h-screen text-white overflow-x-hidden" style={{ background: BG }}>
+    <div className="min-h-screen text-white overflow-x-clip" style={{ background: BG }}>
       <Navbar />
 
       {/* Hero */}

@@ -89,7 +89,7 @@ const caseStudies = [
 
 export default function CaseStudiesPage() {
   return (
-    <div className="min-h-screen text-white overflow-x-hidden" style={{ background: BG }}>
+    <div className="min-h-screen text-white overflow-x-clip" style={{ background: BG }}>
       <Navbar />
 
       {/* Hero */}

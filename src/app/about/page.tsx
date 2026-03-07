@@ -61,7 +61,7 @@ function AnimatedStat({ value, label }: { value: string; label: string }) {
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen text-white overflow-x-hidden" style={{ background: BG }}>
+    <div className="min-h-screen text-white overflow-x-clip" style={{ background: BG }}>
       <Navbar />
 
       {/* Hero */}
