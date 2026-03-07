@@ -392,8 +392,7 @@ export default function FreeReviewPage() {
                     href="https://calendar.app.google/QZoctWL6MPGEzBds9"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-3 text-black font-bold px-10 py-4 rounded-full transition-all hover:scale-105"
-                    style={{ background: "#0fb8ce" }}
+                    className="cta-btn inline-flex items-center justify-center gap-3 text-black font-bold px-10 py-4 rounded-full"
                   >
                     Schedule My Free Strategy Call →
                   </a>

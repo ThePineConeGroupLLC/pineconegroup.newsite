@@ -60,7 +60,7 @@ export default function Navbar() {
             <Link href="/case-studies" className="hover:text-white transition-colors tracking-wide">Case Studies</Link>
             <Link href="/about" className="hover:text-white transition-colors tracking-wide">About</Link>
             <Link href="/contact" className="hover:text-white transition-colors tracking-wide">Contact</Link>
-            <Link href="/free-review" className="font-bold px-6 py-2.5 rounded-full transition-all hover:scale-105 text-xs uppercase tracking-widest text-black ml-2" style={{ background: "#0fb8ce" }}>
+            <Link href="/free-review" className="cta-btn font-bold px-6 py-2.5 rounded-full text-xs uppercase tracking-widest text-black ml-2">
               Free Review
             </Link>
           </div>
@@ -116,8 +116,7 @@ export default function Navbar() {
               <Link
                 href="/free-review"
                 onClick={() => setOpen(false)}
-                className="inline-flex items-center gap-3 text-black font-bold px-8 py-4 rounded-full text-sm uppercase tracking-widest"
-                style={{ background: "#0fb8ce" }}
+                className="cta-btn inline-flex items-center gap-3 text-black font-bold px-8 py-4 rounded-full text-sm uppercase tracking-widest"
               >
                 Get a Free Review →
               </Link>

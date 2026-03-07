@@ -154,7 +154,7 @@ export default function Home() {
               transition: "opacity 0.7s ease 450ms, transform 0.7s ease 450ms",
             }}
           >
-            <a href="https://calendar.app.google/QZoctWL6MPGEzBds9" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-3 text-black font-bold px-8 py-4 md:px-10 md:py-5 rounded-full text-base md:text-lg transition-all hover:scale-105 hover:shadow-lg w-full sm:w-auto" style={{ background: "#0fb8ce", boxShadow: "0 0 32px rgba(15,184,206,0.3)" }}>
+            <a href="https://calendar.app.google/QZoctWL6MPGEzBds9" target="_blank" rel="noopener noreferrer" className="cta-btn inline-flex items-center justify-center gap-3 text-black font-bold px-8 py-4 md:px-10 md:py-5 rounded-full text-base md:text-lg w-full sm:w-auto">
               Schedule a Strategy Call →
             </a>
           </div>
@@ -276,7 +276,7 @@ export default function Home() {
                   <p className="text-gray-400 leading-relaxed mb-8">
                     Discover exactly how your website is performing across design quality, lead conversion, mobile experience, and AI visibility — and see what&apos;s possible with a strategic upgrade.
                   </p>
-                  <Link href="/free-review" className="inline-flex items-center gap-3 text-black font-bold px-8 py-4 rounded-full transition-all hover:scale-105" style={{ background: "#0fb8ce", boxShadow: "0 0 24px rgba(15,184,206,0.3)" }}>
+                  <Link href="/free-review" className="cta-btn inline-flex items-center gap-3 text-black font-bold px-8 py-4 rounded-full">
                     Run My Free Review →
                   </Link>
                 </div>
@@ -316,7 +316,7 @@ export default function Home() {
           <p className="text-gray-400 text-lg mb-12 leading-relaxed">
             Schedule a free strategy call and discover exactly what&apos;s possible for your brand.
           </p>
-          <a href="https://calendar.app.google/QZoctWL6MPGEzBds9" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 text-black font-bold px-12 py-5 rounded-full text-lg transition-all hover:scale-105" style={{ background: "#0fb8ce", boxShadow: "0 0 40px rgba(15,184,206,0.35)" }}>
+          <a href="https://calendar.app.google/QZoctWL6MPGEzBds9" target="_blank" rel="noopener noreferrer" className="cta-btn inline-flex items-center gap-3 text-black font-bold px-12 py-5 rounded-full text-lg">
             Schedule a Strategy Call →
           </a>
         </FadeIn>
