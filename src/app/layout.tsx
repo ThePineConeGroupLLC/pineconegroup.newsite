@@ -45,11 +45,15 @@ export default function RootLayout({
           data-custom-data='{"appName": "YourApp", "version": "1.0.0", "greeting": "hi"}'
         />
         {children}
-        <div className="elfsight-app-3afba921-b9e6-4385-b856-5f22794da764" data-elfsight-app-lazy></div>
-        <Script
-          src="https://elfsightcdn.com/platform.js"
-          strategy="afterInteractive"
-        />
+        {process.env.NODE_ENV === "production" && (
+          <>
+            <div className="elfsight-app-3afba921-b9e6-4385-b856-5f22794da764" data-elfsight-app-lazy></div>
+            <Script
+              src="https://elfsightcdn.com/platform.js"
+              strategy="afterInteractive"
+            />
+          </>
+        )}
         <VisualEditsMessenger />
       </body>
     </html>
