@@ -26,7 +26,7 @@ function gradeFromScore(score: number): string {
 
 function colorFromScore(score: number): string {
   if (score >= 75) return "#0fb8ce";
-  if (score >= 50) return "#ffebb7";
+  if (score >= 50) return "#ffd47a";
   return "#e05a5a";
 }
 
@@ -242,7 +242,7 @@ export default function FreeReviewPage() {
       <section className="relative pt-20 pb-16 px-6 overflow-hidden" style={{ background: `linear-gradient(160deg, #0a1614 0%, ${BG} 100%)` }}>
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <div className="absolute top-1/4 right-0 w-64 h-64 md:w-[440px] md:h-[440px] rounded-full blur-3xl" style={{ background: "rgba(15,184,206,0.09)", animation: "pulse 7s ease-in-out infinite" }} />
-          <div className="absolute bottom-0 left-0 w-40 h-40 md:w-64 md:h-64 rounded-full blur-3xl" style={{ background: "rgba(255,235,183,0.06)", animation: "pulse 9s ease-in-out infinite 1s" }} />
+          <div className="absolute bottom-0 left-0 w-40 h-40 md:w-64 md:h-64 rounded-full blur-3xl" style={{ background: "rgba(255,212,122,0.06)", animation: "pulse 9s ease-in-out infinite 1s" }} />
           <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(15,184,206,0.05) 0%, transparent 65%)" }} />
         </div>
         <div className="relative max-w-3xl mx-auto text-center">
