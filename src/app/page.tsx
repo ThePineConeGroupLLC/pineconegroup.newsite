@@ -199,7 +199,7 @@ export default function Home() {
             <p className="text-[#0fb8ce] uppercase tracking-[0.2em] text-xs font-bold mb-5">What We Do</p>
             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-14">
               <h2 className="font-playfair font-black text-white leading-tight" style={{ fontSize: "clamp(2.2rem, 6vw, 4rem)" }}>
-                Every Service Built<br />to Grow Your Business
+                Every Service Built<br />to Grow Your <em style={{ color: "#F5A94C", fontStyle: "italic" }}>Business</em>
               </h2>
               <Link href="/services" className="text-[#0fb8ce] hover:underline flex items-center gap-2 font-semibold whitespace-nowrap text-sm">
                 View all services →
