@@ -10,9 +10,11 @@ export default function Navbar() {
   return (
     <>
       <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md" style={{ background: "rgba(11,26,24,0.95)", borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
-        <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-20">
-          <Link href="/" className="flex items-center" onClick={() => setOpen(false)}>
-            <Image src="/logo.webp" alt="The Pine Cone Group" width={100} height={100} className="h-14 w-auto" />
+        <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-24">
+          <Link href="/" className="flex items-center relative" onClick={() => setOpen(false)}>
+            {/* Glow behind logo */}
+            <div className="absolute inset-0 rounded-full blur-2xl opacity-40" style={{ background: "radial-gradient(ellipse, #0fb8ce 0%, transparent 70%)", transform: "scale(1.4)" }} />
+            <Image src="/logo.webp" alt="The Pine Cone Group" width={140} height={140} className="relative h-20 w-auto drop-shadow-lg" />
           </Link>
 
           {/* Desktop nav */}
@@ -43,10 +45,10 @@ export default function Navbar() {
       {/* Mobile full-screen menu */}
       {open && (
         <div className="fixed inset-0 z-40 flex flex-col" style={{ background: "#0b1a18" }}>
-          {/* Top bar matching navbar */}
-          <div className="px-6 flex items-center justify-between h-20" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
-            <Link href="/" onClick={() => setOpen(false)}>
-              <Image src="/logo.webp" alt="The Pine Cone Group" width={100} height={100} className="h-14 w-auto" />
+          <div className="px-6 flex items-center justify-between h-24" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+            <Link href="/" onClick={() => setOpen(false)} className="relative flex items-center">
+              <div className="absolute inset-0 rounded-full blur-2xl opacity-40" style={{ background: "radial-gradient(ellipse, #0fb8ce 0%, transparent 70%)", transform: "scale(1.4)" }} />
+              <Image src="/logo.webp" alt="The Pine Cone Group" width={140} height={140} className="relative h-20 w-auto" />
             </Link>
             <button onClick={() => setOpen(false)} className="text-white p-1">
               <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
@@ -55,7 +57,6 @@ export default function Navbar() {
             </button>
           </div>
 
-          {/* Menu links */}
           <div className="flex flex-col px-8 py-10 gap-2 flex-1">
             {[
               { label: "Home", href: "/" },

@@ -10,6 +10,7 @@ const BG = "#0b1a18";
 const BG2 = "#0f2320";
 const CARD = "#132420";
 
+// Animated counter hook
 function useCounter(target: number, duration = 2000, start = false) {
   const [count, setCount] = useState(0);
   useEffect(() => {
@@ -56,36 +57,107 @@ function StatItem({ value, label }: { value: string; label: string }) {
   );
 }
 
+// Fade-in on scroll
+function FadeIn({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
+      { threshold: 0.1 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+  return (
+    <div
+      ref={ref}
+      className={className}
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? "translateY(0)" : "translateY(32px)",
+        transition: `opacity 0.7s ease ${delay}ms, transform 0.7s ease ${delay}ms`,
+      }}
+    >
+      {children}
+    </div>
+  );
+}
+
 export default function Home() {
+  // Hero text stagger animation
+  const [heroVisible, setHeroVisible] = useState(false);
+  useEffect(() => {
+    const t = setTimeout(() => setHeroVisible(true), 100);
+    return () => clearTimeout(t);
+  }, []);
+
   return (
     <div className="min-h-screen text-white" style={{ background: BG, fontFamily: "var(--font-inter)" }}>
       <Navbar />
 
       {/* Hero */}
-      <section className="relative min-h-screen flex items-center" style={{ background: `linear-gradient(160deg, #0a1614 0%, ${BG} 60%)` }}>
-        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 60% 40%, rgba(15,184,206,0.07) 0%, transparent 65%)" }} />
+      <section className="relative min-h-screen flex items-center overflow-hidden" style={{ background: `linear-gradient(160deg, #0a1614 0%, ${BG} 60%)` }}>
+        {/* Animated background orbs */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full blur-3xl" style={{ background: "rgba(15,184,206,0.08)", animation: "pulse 6s ease-in-out infinite" }} />
+          <div className="absolute bottom-1/3 left-1/4 w-64 h-64 rounded-full blur-3xl" style={{ background: "rgba(245,169,76,0.05)", animation: "pulse 8s ease-in-out infinite 2s" }} />
+        </div>
+
         <div className="relative max-w-2xl mx-auto px-6 py-40 text-center w-full">
           {/* Badge */}
-          <div className="inline-flex items-center gap-3 rounded-full px-6 py-2.5 mb-10" style={{ background: "rgba(15,184,206,0.1)", border: "1px solid rgba(15,184,206,0.35)" }}>
-            <span className="w-2 h-2 rounded-full bg-[#0fb8ce] inline-block" />
+          <div
+            className="inline-flex items-center gap-3 rounded-full px-6 py-2.5 mb-10"
+            style={{
+              background: "rgba(15,184,206,0.1)",
+              border: "1px solid rgba(15,184,206,0.35)",
+              opacity: heroVisible ? 1 : 0,
+              transform: heroVisible ? "translateY(0)" : "translateY(20px)",
+              transition: "opacity 0.6s ease 0ms, transform 0.6s ease 0ms",
+            }}
+          >
+            <span className="w-2 h-2 rounded-full bg-[#0fb8ce] inline-block animate-pulse" />
             <span className="text-[#0fb8ce] uppercase tracking-[0.2em] text-xs font-bold">Strategic Growth Agency</span>
           </div>
 
           {/* Headline */}
-          <h1 className="font-playfair font-black leading-[1.05] mb-8" style={{ fontSize: "clamp(3rem, 12vw, 5.5rem)" }}>
+          <h1
+            className="font-playfair font-black leading-[1.05] mb-8"
+            style={{
+              fontSize: "clamp(3rem, 12vw, 5.5rem)",
+              opacity: heroVisible ? 1 : 0,
+              transform: heroVisible ? "translateY(0)" : "translateY(24px)",
+              transition: "opacity 0.7s ease 150ms, transform 0.7s ease 150ms",
+            }}
+          >
             <span className="text-white">Your Brand.</span><br />
             <span className="text-[#0fb8ce]">Elevated.</span><br />
             <span className="text-white">Your Growth.</span><br />
             <span style={{ color: "#F5A94C" }}>Accelerated.</span>
           </h1>
 
-          <p className="text-gray-400 text-lg leading-relaxed mb-12 max-w-lg mx-auto">
+          <p
+            className="text-gray-400 text-lg leading-relaxed mb-12 max-w-lg mx-auto"
+            style={{
+              opacity: heroVisible ? 1 : 0,
+              transform: heroVisible ? "translateY(0)" : "translateY(20px)",
+              transition: "opacity 0.7s ease 300ms, transform 0.7s ease 300ms",
+            }}
+          >
             The Pine Cone Group helps ambitious brands grow leads and revenue through strategic design, digital storytelling, and premium digital positioning that converts.
           </p>
 
-          <Link href="/contact" className="inline-flex items-center gap-3 text-black font-bold px-10 py-5 rounded-full text-lg transition-all hover:scale-105" style={{ background: "#0fb8ce" }}>
-            Schedule a Strategy Call <span>→</span>
-          </Link>
+          <div
+            style={{
+              opacity: heroVisible ? 1 : 0,
+              transform: heroVisible ? "translateY(0) scale(1)" : "translateY(20px) scale(0.95)",
+              transition: "opacity 0.7s ease 450ms, transform 0.7s ease 450ms",
+            }}
+          >
+            <Link href="/contact" className="inline-flex items-center gap-3 text-black font-bold px-10 py-5 rounded-full text-lg transition-all hover:scale-105 hover:shadow-lg" style={{ background: "#0fb8ce", boxShadow: "0 0 32px rgba(15,184,206,0.3)" }}>
+              Schedule a Strategy Call <span>→</span>
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -115,15 +187,17 @@ export default function Home() {
       {/* Services */}
       <section className="py-24 px-6" style={{ background: BG2 }}>
         <div className="max-w-6xl mx-auto">
-          <p className="text-[#0fb8ce] uppercase tracking-[0.2em] text-xs font-bold mb-5">What We Do</p>
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-14">
-            <h2 className="font-playfair font-black text-white leading-tight" style={{ fontSize: "clamp(2.2rem, 6vw, 4rem)" }}>
-              Every Service Built<br />to Grow Your Business
-            </h2>
-            <Link href="/services" className="text-[#0fb8ce] hover:underline flex items-center gap-2 font-semibold whitespace-nowrap text-sm">
-              View all services →
-            </Link>
-          </div>
+          <FadeIn>
+            <p className="text-[#0fb8ce] uppercase tracking-[0.2em] text-xs font-bold mb-5">What We Do</p>
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-14">
+              <h2 className="font-playfair font-black text-white leading-tight" style={{ fontSize: "clamp(2.2rem, 6vw, 4rem)" }}>
+                Every Service Built<br />to Grow Your Business
+              </h2>
+              <Link href="/services" className="text-[#0fb8ce] hover:underline flex items-center gap-2 font-semibold whitespace-nowrap text-sm">
+                View all services →
+              </Link>
+            </div>
+          </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
               { title: "Website Design & Development", desc: "High-converting websites that build trust, communicate value, and drive action.", icon: Globe },
@@ -132,14 +206,16 @@ export default function Home() {
               { title: "Branding & Creative Direction", desc: "Complete brand identities that position you as the premium, credible choice.", icon: Palette },
               { title: "AI Visibility & Search Readiness", desc: "Be found where the future searches — ChatGPT, Perplexity, Google SGE.", icon: Bot },
               { title: "Marketing Consulting", desc: "Senior-level strategy and positioning expertise without the overhead.", icon: TrendingUp },
-            ].map((s) => (
-              <div key={s.title} className="rounded-2xl p-7 transition-all hover:scale-[1.02]" style={{ background: CARD, border: "1px solid rgba(255,255,255,0.07)" }}>
-                <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-5" style={{ background: "rgba(15,184,206,0.12)", border: "1px solid rgba(15,184,206,0.25)" }}>
-                  <s.icon size={20} color="#0fb8ce" strokeWidth={1.5} />
+            ].map((s, i) => (
+              <FadeIn key={s.title} delay={i * 80}>
+                <div className="rounded-2xl p-7 h-full transition-all duration-300 hover:scale-[1.03] hover:border-[#0fb8ce]/40 group" style={{ background: CARD, border: "1px solid rgba(255,255,255,0.07)" }}>
+                  <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-5 transition-all duration-300 group-hover:scale-110" style={{ background: "rgba(15,184,206,0.12)", border: "1px solid rgba(15,184,206,0.25)" }}>
+                    <s.icon size={20} color="#0fb8ce" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="font-playfair font-bold text-white text-xl mb-3">{s.title}</h3>
+                  <p className="text-gray-400 leading-relaxed text-sm">{s.desc}</p>
                 </div>
-                <h3 className="font-playfair font-bold text-white text-xl mb-3">{s.title}</h3>
-                <p className="text-gray-400 leading-relaxed text-sm">{s.desc}</p>
-              </div>
+              </FadeIn>
             ))}
           </div>
         </div>
@@ -148,80 +224,85 @@ export default function Home() {
       {/* Case Studies */}
       <section className="py-24 px-6" style={{ background: BG }}>
         <div className="max-w-6xl mx-auto">
-          <p className="text-[#0fb8ce] uppercase tracking-[0.2em] text-xs font-bold mb-5">Client Outcomes</p>
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-14">
-            <h2 className="font-playfair font-black text-white leading-tight" style={{ fontSize: "clamp(2.2rem, 6vw, 4rem)" }}>
-              Real Brands.<br />Real Results.
-            </h2>
-            <Link href="/case-studies" className="text-[#0fb8ce] hover:underline flex items-center gap-2 font-semibold whitespace-nowrap text-sm">
-              All case studies →
-            </Link>
-          </div>
+          <FadeIn>
+            <p className="text-[#0fb8ce] uppercase tracking-[0.2em] text-xs font-bold mb-5">Client Outcomes</p>
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-14">
+              <h2 className="font-playfair font-black text-white leading-tight" style={{ fontSize: "clamp(2.2rem, 6vw, 4rem)" }}>
+                Real Brands.<br />Real Results.
+              </h2>
+              <Link href="/case-studies" className="text-[#0fb8ce] hover:underline flex items-center gap-2 font-semibold whitespace-nowrap text-sm">
+                All case studies →
+              </Link>
+            </div>
+          </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
               { tag: "Local Service Business", client: "Regional HVAC Company", metric: "+340%", metricLabel: "Qualified Leads in 90 Days", quote: "I didn't realize how much our old site was costing us. They helped us become the obvious choice in our market." },
               { tag: "Nonprofit", client: "Community Foundation", metric: "2.8x", metricLabel: "Donor Conversion Rate", quote: "They understood our mission before we finished explaining it. The result was new credibility we didn't know we were missing." },
               { tag: "Restaurant & Hospitality", client: "Farm-to-Table Restaurant", metric: "+220%", metricLabel: "Online Reservations in 6 Months", quote: "Bookings went through the roof. The site doesn't just look incredible — it actually sells." },
-            ].map((c) => (
-              <div key={c.client} className="rounded-2xl p-7" style={{ background: CARD, border: "1px solid rgba(255,255,255,0.07)" }}>
-                <div className="inline-flex items-center rounded-full px-4 py-1.5 mb-6" style={{ background: "rgba(15,184,206,0.12)", border: "1px solid rgba(15,184,206,0.25)" }}>
-                  <span className="text-[#0fb8ce] text-xs uppercase tracking-[0.15em] font-bold">{c.tag}</span>
+            ].map((c, i) => (
+              <FadeIn key={c.client} delay={i * 100}>
+                <div className="rounded-2xl p-7 h-full transition-all duration-300 hover:scale-[1.02] hover:border-[#0fb8ce]/30" style={{ background: CARD, border: "1px solid rgba(255,255,255,0.07)" }}>
+                  <div className="inline-flex items-center rounded-full px-4 py-1.5 mb-6" style={{ background: "rgba(15,184,206,0.12)", border: "1px solid rgba(15,184,206,0.25)" }}>
+                    <span className="text-[#0fb8ce] text-xs uppercase tracking-[0.15em] font-bold">{c.tag}</span>
+                  </div>
+                  <h3 className="font-playfair font-bold text-white text-xl mb-1">{c.client}</h3>
+                  <p className="text-gray-400 text-sm mb-4">{c.metricLabel}</p>
+                  <div className="font-playfair font-black text-[#0fb8ce] mb-5" style={{ fontSize: "3.5rem", lineHeight: 1 }}>{c.metric}</div>
+                  <p className="text-gray-400 italic text-sm leading-relaxed border-l-2 border-[#0fb8ce]/30 pl-4">&ldquo;{c.quote}&rdquo;</p>
                 </div>
-                <h3 className="font-playfair font-bold text-white text-xl mb-1">{c.client}</h3>
-                <p className="text-gray-400 text-sm mb-4">{c.metricLabel}</p>
-                <div className="font-playfair font-black text-[#0fb8ce] mb-5" style={{ fontSize: "3.5rem", lineHeight: 1 }}>{c.metric}</div>
-                <p className="text-gray-400 italic text-sm leading-relaxed border-l-2 border-[#0fb8ce]/30 pl-4">"{c.quote}"</p>
-              </div>
+              </FadeIn>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Signature Tool */}
+      {/* Free Review */}
       <section className="py-24 px-6" style={{ background: BG2, borderTop: "1px solid rgba(255,255,255,0.06)" }}>
         <div className="max-w-5xl mx-auto">
-          <div className="rounded-2xl overflow-hidden" style={{ background: CARD, border: "1px solid rgba(15,184,206,0.2)" }}>
-            <div className="grid grid-cols-1 md:grid-cols-2">
-              {/* Left: Content */}
-              <div className="p-10 md:p-14">
-                <h2 className="font-playfair font-black text-white leading-tight mb-6" style={{ fontSize: "clamp(2rem, 5vw, 3rem)" }}>
-                  Free Website Performance Review
-                </h2>
-                <p className="text-gray-400 leading-relaxed mb-8">
-                  Discover exactly how your website is performing across design quality, lead conversion, mobile experience, and AI visibility — and see what&apos;s possible with a strategic upgrade.
-                </p>
-                <Link href="/free-review" className="inline-flex items-center gap-3 text-black font-bold px-8 py-4 rounded-full transition-all hover:scale-105" style={{ background: "#0fb8ce" }}>
-                  Run My Free Review →
-                </Link>
-              </div>
-              {/* Right: Score Widget */}
-              <div className="p-10 md:p-14 flex flex-col justify-center gap-5" style={{ borderLeft: "1px solid rgba(255,255,255,0.07)" }}>
-                {[
-                  { label: "Performance Score", score: 72 },
-                  { label: "Design Quality", score: 58 },
-                  { label: "Lead Conversion Potential", score: 44 },
-                  { label: "Mobile Experience", score: 81 },
-                  { label: "AI Visibility", score: 35 },
-                ].map((item) => (
-                  <div key={item.label}>
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="text-gray-400 text-sm">{item.label}</span>
-                      <span className="text-white font-bold text-sm">{item.score}</span>
+          <FadeIn>
+            <div className="rounded-2xl overflow-hidden" style={{ background: CARD, border: "1px solid rgba(15,184,206,0.2)", boxShadow: "0 0 60px rgba(15,184,206,0.07)" }}>
+              <div className="grid grid-cols-1 md:grid-cols-2">
+                <div className="p-10 md:p-14">
+                  <h2 className="font-playfair font-black text-white leading-tight mb-6" style={{ fontSize: "clamp(2rem, 5vw, 3rem)" }}>
+                    Free Website Performance Review
+                  </h2>
+                  <p className="text-gray-400 leading-relaxed mb-8">
+                    Discover exactly how your website is performing across design quality, lead conversion, mobile experience, and AI visibility — and see what&apos;s possible with a strategic upgrade.
+                  </p>
+                  <Link href="/free-review" className="inline-flex items-center gap-3 text-black font-bold px-8 py-4 rounded-full transition-all hover:scale-105" style={{ background: "#0fb8ce", boxShadow: "0 0 24px rgba(15,184,206,0.3)" }}>
+                    Run My Free Review →
+                  </Link>
+                </div>
+                <div className="p-10 md:p-14 flex flex-col justify-center gap-5" style={{ borderLeft: "1px solid rgba(255,255,255,0.07)" }}>
+                  {[
+                    { label: "Performance Score", score: 72 },
+                    { label: "Design Quality", score: 58 },
+                    { label: "Lead Conversion Potential", score: 44 },
+                    { label: "Mobile Experience", score: 81 },
+                    { label: "AI Visibility", score: 35 },
+                  ].map((item) => (
+                    <div key={item.label}>
+                      <div className="flex justify-between items-center mb-2">
+                        <span className="text-gray-400 text-sm">{item.label}</span>
+                        <span className="text-white font-bold text-sm">{item.score}</span>
+                      </div>
+                      <div className="h-1.5 rounded-full w-full" style={{ background: "rgba(255,255,255,0.08)" }}>
+                        <div className="h-1.5 rounded-full" style={{ width: `${item.score}%`, background: "#0fb8ce" }} />
+                      </div>
                     </div>
-                    <div className="h-1.5 rounded-full w-full" style={{ background: "rgba(255,255,255,0.08)" }}>
-                      <div className="h-1.5 rounded-full" style={{ width: `${item.score}%`, background: "#0fb8ce" }} />
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-28 text-center px-6" style={{ background: BG2, borderTop: "1px solid rgba(255,255,255,0.06)" }}>
-        <div className="max-w-2xl mx-auto">
+      <section className="py-28 text-center px-6 relative overflow-hidden" style={{ background: BG2, borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(15,184,206,0.06) 0%, transparent 70%)" }} />
+        <FadeIn className="relative max-w-2xl mx-auto">
           <p className="text-[#0fb8ce] uppercase tracking-[0.2em] text-xs font-bold mb-6">Ready to Grow?</p>
           <h2 className="font-playfair font-black text-white mb-6 leading-tight" style={{ fontSize: "clamp(2.5rem, 7vw, 4.5rem)" }}>
             Let&apos;s Build Something Remarkable
@@ -229,10 +310,10 @@ export default function Home() {
           <p className="text-gray-400 text-lg mb-12 leading-relaxed">
             Schedule a free strategy call and discover exactly what&apos;s possible for your brand.
           </p>
-          <Link href="/contact" className="inline-flex items-center gap-3 text-black font-bold px-12 py-5 rounded-full text-lg transition-all hover:scale-105" style={{ background: "#0fb8ce" }}>
+          <Link href="/contact" className="inline-flex items-center gap-3 text-black font-bold px-12 py-5 rounded-full text-lg transition-all hover:scale-105" style={{ background: "#0fb8ce", boxShadow: "0 0 40px rgba(15,184,206,0.35)" }}>
             Schedule a Strategy Call →
           </Link>
-        </div>
+        </FadeIn>
       </section>
 
       <Footer />
