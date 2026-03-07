@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { Check } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -142,7 +143,7 @@ export default function CaseStudiesPage() {
                   <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
                     {cs.actions.map((a) => (
                       <li key={a} className="flex items-start gap-2 text-sm text-gray-400">
-                        <span className="text-[#0fb8ce] mt-0.5 font-bold">✓</span>{a}
+                        <Check size={14} color="#0fb8ce" className="mt-0.5 shrink-0" strokeWidth={2.5} />{a}
                       </li>
                     ))}
                   </ul>

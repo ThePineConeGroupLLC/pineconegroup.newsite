@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Globe, Zap, Target, Palette, Bot, TrendingUp } from "lucide-react";
 
 const BG = "#0b1a18";
 const BG2 = "#0f2320";
@@ -125,15 +126,17 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
-              { title: "Website Design & Development", desc: "High-converting websites that build trust, communicate value, and drive action.", icon: "🌐" },
-              { title: "Lead Generation Systems", desc: "Full-funnel systems that attract ideal clients and convert visitors into opportunities.", icon: "⚡" },
-              { title: "Strategic Design", desc: "Design as a growth lever — rooted in research, positioning, and measurable objectives.", icon: "🎯" },
-              { title: "Branding & Creative Direction", desc: "Complete brand identities that position you as the premium, credible choice.", icon: "✦" },
-              { title: "AI Visibility & Search Readiness", desc: "Be found where the future searches — ChatGPT, Perplexity, Google SGE.", icon: "🤖" },
-              { title: "Marketing Consulting", desc: "Senior-level strategy and positioning expertise without the overhead.", icon: "📈" },
+              { title: "Website Design & Development", desc: "High-converting websites that build trust, communicate value, and drive action.", icon: Globe },
+              { title: "Lead Generation Systems", desc: "Full-funnel systems that attract ideal clients and convert visitors into opportunities.", icon: Zap },
+              { title: "Strategic Design", desc: "Design as a growth lever — rooted in research, positioning, and measurable objectives.", icon: Target },
+              { title: "Branding & Creative Direction", desc: "Complete brand identities that position you as the premium, credible choice.", icon: Palette },
+              { title: "AI Visibility & Search Readiness", desc: "Be found where the future searches — ChatGPT, Perplexity, Google SGE.", icon: Bot },
+              { title: "Marketing Consulting", desc: "Senior-level strategy and positioning expertise without the overhead.", icon: TrendingUp },
             ].map((s) => (
               <div key={s.title} className="rounded-2xl p-7 transition-all hover:scale-[1.02]" style={{ background: CARD, border: "1px solid rgba(255,255,255,0.07)" }}>
-                <div className="text-3xl mb-5">{s.icon}</div>
+                <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-5" style={{ background: "rgba(15,184,206,0.12)", border: "1px solid rgba(15,184,206,0.25)" }}>
+                  <s.icon size={20} color="#0fb8ce" strokeWidth={1.5} />
+                </div>
                 <h3 className="font-playfair font-bold text-white text-xl mb-3">{s.title}</h3>
                 <p className="text-gray-400 leading-relaxed text-sm">{s.desc}</p>
               </div>

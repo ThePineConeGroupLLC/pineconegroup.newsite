@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import { Zap, Palette, TrendingUp, Smartphone, Bot } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -409,14 +410,16 @@ export default function FreeReviewPage() {
           <p className="text-[#0fb8ce] uppercase tracking-[0.2em] text-xs font-bold mb-10">What We Measure</p>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
             {[
-              { icon: "⚡", title: "Performance", desc: "Speed & technical health" },
-              { icon: "🎨", title: "Design Quality", desc: "Visual trust signals" },
-              { icon: "📈", title: "Conversion", desc: "Lead capture architecture" },
-              { icon: "📱", title: "Mobile UX", desc: "Responsiveness & usability" },
-              { icon: "🤖", title: "AI Visibility", desc: "ChatGPT, Perplexity & SGE" },
+              { icon: Zap, title: "Performance", desc: "Speed & technical health" },
+              { icon: Palette, title: "Design Quality", desc: "Visual trust signals" },
+              { icon: TrendingUp, title: "Conversion", desc: "Lead capture architecture" },
+              { icon: Smartphone, title: "Mobile UX", desc: "Responsiveness & usability" },
+              { icon: Bot, title: "AI Visibility", desc: "ChatGPT, Perplexity & SGE" },
             ].map((item) => (
               <div key={item.title} className="text-center">
-                <div className="text-3xl mb-3">{item.icon}</div>
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-3" style={{ background: "rgba(15,184,206,0.1)", border: "1px solid rgba(15,184,206,0.2)" }}>
+                  <item.icon size={20} color="#0fb8ce" strokeWidth={1.5} />
+                </div>
                 <div className="font-playfair font-bold text-white text-sm mb-1">{item.title}</div>
                 <div className="text-gray-500 text-xs">{item.desc}</div>
               </div>

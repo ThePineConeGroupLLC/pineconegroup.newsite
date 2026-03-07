@@ -1,19 +1,20 @@
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Globe, Palette, Target, BookOpen, Bot, Zap, TrendingUp, Check } from "lucide-react";
 
 const BG = "#0b1a18";
 const BG2 = "#0f2320";
 const CARD = "#132420";
 
 const services = [
-  { title: "Website Design & Development", tagline: "Your most powerful sales asset", desc: "We design and build high-converting websites that build trust, communicate value at a glance, and drive visitors to take action.", features: ["Dramatically improved conversion rates", "Brand-defining first impressions", "Mobile-perfect at every breakpoint", "Built for speed and SEO performance"], icon: "🌐" },
-  { title: "Branding & Creative Direction", tagline: "Stand apart. Stand for something.", desc: "Complete brand identities including logo, color, typography, voice, and creative systems — positioning you as the premium, credible choice.", features: ["Premium, cohesive brand identity", "Clear differentiation from competitors", "Brand guidelines for consistent application", "Elevated perceived value across channels"], icon: "✦" },
-  { title: "Strategic Design", tagline: "Where growth strategy meets creative execution", desc: "Design treated as a growth lever — grounded in research, positioning, and measurable business objectives.", features: ["Design rooted in business strategy", "Conversion-optimized layouts and flows", "Positioning clarity across touchpoints", "Consistent brand-to-revenue connections"], icon: "🎯" },
-  { title: "Digital Storytelling", tagline: "Content that captures and converts", desc: "Finding and packaging your brand narrative across digital channels — messaging that resonates with your ideal client and moves them to action.", features: ["Messaging clarity and brand voice", "Website copywriting and content strategy", "Narrative frameworks that build trust", "Story-driven content systems"], icon: "✍️" },
-  { title: "AI Visibility & Search Readiness", tagline: "Be found where the future searches", desc: "Positioning your brand for discovery by AI-powered tools like ChatGPT, Perplexity, and Google SGE — the new frontier of search.", features: ["Authority content for AI citation", "Structured data and entity optimization", "Topical depth and semantic relevance", "Future-proof digital presence architecture"], icon: "🤖" },
-  { title: "Lead Generation Systems", tagline: "Turn your website into a growth engine", desc: "Full-funnel systems that attract your ideal clients, build trust automatically, and convert visitors into qualified opportunities consistently.", features: ["Full-funnel strategy and architecture", "High-converting lead capture assets", "Automated nurture and follow-up systems", "Consistent, predictable lead volume"], icon: "⚡" },
-  { title: "Marketing Consulting", tagline: "Senior strategic direction, without the overhead", desc: "Senior-level strategy and positioning expertise without the cost of a full CMO or in-house team.", features: ["Positioning and messaging strategy", "Marketing channel prioritization", "Campaign and funnel architecture", "Quarterly strategic review and guidance"], icon: "📈" },
+  { title: "Website Design & Development", tagline: "Your most powerful sales asset", desc: "We design and build high-converting websites that build trust, communicate value at a glance, and drive visitors to take action.", features: ["Dramatically improved conversion rates", "Brand-defining first impressions", "Mobile-perfect at every breakpoint", "Built for speed and SEO performance"], icon: Globe },
+  { title: "Branding & Creative Direction", tagline: "Stand apart. Stand for something.", desc: "Complete brand identities including logo, color, typography, voice, and creative systems — positioning you as the premium, credible choice.", features: ["Premium, cohesive brand identity", "Clear differentiation from competitors", "Brand guidelines for consistent application", "Elevated perceived value across channels"], icon: Palette },
+  { title: "Strategic Design", tagline: "Where growth strategy meets creative execution", desc: "Design treated as a growth lever — grounded in research, positioning, and measurable business objectives.", features: ["Design rooted in business strategy", "Conversion-optimized layouts and flows", "Positioning clarity across touchpoints", "Consistent brand-to-revenue connections"], icon: Target },
+  { title: "Digital Storytelling", tagline: "Content that captures and converts", desc: "Finding and packaging your brand narrative across digital channels — messaging that resonates with your ideal client and moves them to action.", features: ["Messaging clarity and brand voice", "Website copywriting and content strategy", "Narrative frameworks that build trust", "Story-driven content systems"], icon: BookOpen },
+  { title: "AI Visibility & Search Readiness", tagline: "Be found where the future searches", desc: "Positioning your brand for discovery by AI-powered tools like ChatGPT, Perplexity, and Google SGE — the new frontier of search.", features: ["Authority content for AI citation", "Structured data and entity optimization", "Topical depth and semantic relevance", "Future-proof digital presence architecture"], icon: Bot },
+  { title: "Lead Generation Systems", tagline: "Turn your website into a growth engine", desc: "Full-funnel systems that attract your ideal clients, build trust automatically, and convert visitors into qualified opportunities consistently.", features: ["Full-funnel strategy and architecture", "High-converting lead capture assets", "Automated nurture and follow-up systems", "Consistent, predictable lead volume"], icon: Zap },
+  { title: "Marketing Consulting", tagline: "Senior strategic direction, without the overhead", desc: "Senior-level strategy and positioning expertise without the cost of a full CMO or in-house team.", features: ["Positioning and messaging strategy", "Marketing channel prioritization", "Campaign and funnel architecture", "Quarterly strategic review and guidance"], icon: TrendingUp },
 ];
 
 export default function ServicesPage() {
@@ -40,14 +41,16 @@ export default function ServicesPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {services.map((s) => (
               <div key={s.title} className="rounded-2xl p-8" style={{ background: CARD, border: "1px solid rgba(255,255,255,0.07)" }}>
-                <div className="text-4xl mb-5">{s.icon}</div>
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-5" style={{ background: "rgba(15,184,206,0.12)", border: "1px solid rgba(15,184,206,0.25)" }}>
+                  <s.icon size={22} color="#0fb8ce" strokeWidth={1.5} />
+                </div>
                 <p className="text-[#0fb8ce] text-xs uppercase tracking-[0.15em] font-bold mb-2">{s.tagline}</p>
                 <h2 className="font-playfair font-bold text-white text-2xl mb-4">{s.title}</h2>
                 <p className="text-gray-400 leading-relaxed mb-6 text-sm">{s.desc}</p>
                 <ul className="space-y-2">
                   {s.features.map((f) => (
                     <li key={f} className="flex items-start gap-3 text-sm text-gray-400">
-                      <span className="text-[#0fb8ce] mt-0.5 font-bold">✓</span>{f}
+                      <Check size={14} color="#0fb8ce" className="mt-0.5 shrink-0" strokeWidth={2.5} />{f}
                     </li>
                   ))}
                 </ul>

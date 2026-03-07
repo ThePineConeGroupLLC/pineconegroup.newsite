@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { Check } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -169,7 +170,7 @@ export default function AboutPage() {
               "Growth-stage companies",
             ].map((t) => (
               <div key={t} className="flex items-center gap-4 rounded-xl p-4" style={{ background: CARD, border: "1px solid rgba(255,255,255,0.07)" }}>
-                <span className="text-[#0fb8ce] text-lg font-bold">✓</span>
+                <Check size={16} color="#0fb8ce" strokeWidth={2.5} className="shrink-0" />
                 <span className="text-gray-300 text-sm">{t}</span>
               </div>
             ))}
