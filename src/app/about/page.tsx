@@ -68,7 +68,7 @@ export default function AboutPage() {
       <section className="relative pt-20 pb-24 px-6 overflow-hidden" style={{ background: `linear-gradient(160deg, #0a1614 0%, ${BG} 100%)` }}>
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <div className="absolute top-1/3 right-0 w-72 h-72 md:w-[500px] md:h-[500px] rounded-full blur-3xl" style={{ background: "rgba(15,184,206,0.09)", animation: "pulse 7s ease-in-out infinite" }} />
-          <div className="absolute bottom-0 left-0 w-48 h-48 md:w-72 md:h-72 rounded-full blur-3xl" style={{ background: "rgba(245,169,76,0.06)", animation: "pulse 9s ease-in-out infinite 1s" }} />
+          <div className="absolute bottom-0 left-0 w-48 h-48 md:w-72 md:h-72 rounded-full blur-3xl" style={{ background: "rgba(255,235,183,0.06)", animation: "pulse 9s ease-in-out infinite 1s" }} />
           <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 50% 60%, rgba(15,184,206,0.05) 0%, transparent 65%)" }} />
         </div>
         <div className="relative max-w-4xl mx-auto text-center">

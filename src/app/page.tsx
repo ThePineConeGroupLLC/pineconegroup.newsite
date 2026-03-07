@@ -103,7 +103,7 @@ export default function Home() {
         {/* Animated background orbs — clipped inside section */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <div className="absolute top-1/4 right-0 w-72 h-72 md:w-96 md:h-96 rounded-full blur-3xl" style={{ background: "rgba(15,184,206,0.08)", animation: "pulse 6s ease-in-out infinite", willChange: "transform" }} />
-          <div className="absolute bottom-1/3 left-0 w-48 h-48 md:w-64 md:h-64 rounded-full blur-3xl" style={{ background: "rgba(245,169,76,0.05)", animation: "pulse 8s ease-in-out infinite 2s", willChange: "transform" }} />
+          <div className="absolute bottom-1/3 left-0 w-48 h-48 md:w-64 md:h-64 rounded-full blur-3xl" style={{ background: "rgba(255,235,183,0.05)", animation: "pulse 8s ease-in-out infinite 2s", willChange: "transform" }} />
         </div>
 
         <div className="relative max-w-2xl mx-auto px-6 py-28 md:py-40 text-center w-full">
