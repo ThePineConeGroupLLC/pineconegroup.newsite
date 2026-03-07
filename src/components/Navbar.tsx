@@ -4,17 +4,53 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
+const ringKeyframes = `
+@keyframes logoRing {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.12); }
+}
+@keyframes logoCoreGlow {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.65; }
+}
+`;
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
     <>
+      <style>{ringKeyframes}</style>
       <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md" style={{ background: "rgba(11,26,24,0.95)", borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
-        <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-20 md:h-24">
-          <Link href="/" className="flex items-center relative" onClick={() => setOpen(false)}>
-            {/* Glow behind logo */}
-            <div className="absolute inset-0 rounded-full blur-2xl opacity-40" style={{ background: "radial-gradient(ellipse, #0fb8ce 0%, transparent 70%)", transform: "scale(1.4)" }} />
-            <Image src="/logo.webp" alt="The Pine Cone Group" width={140} height={140} className="relative h-14 md:h-20 w-auto drop-shadow-lg" />
+        <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-20 md:h-28">
+          <Link href="/" className="flex items-center relative group" onClick={() => setOpen(false)}>
+            {/* Outer breathing ring */}
+            <div className="absolute rounded-full" style={{
+              inset: "-8px",
+              border: "1.5px solid rgba(15,184,206,0.45)",
+              borderRadius: "50%",
+              animation: "logoRing 4s ease-in-out infinite",
+            }} />
+            {/* Second ring, offset timing */}
+            <div className="absolute rounded-full" style={{
+              inset: "-14px",
+              border: "1px solid rgba(15,184,206,0.2)",
+              borderRadius: "50%",
+              animation: "logoRing 4s ease-in-out infinite 0.8s",
+            }} />
+            {/* Core glow */}
+            <div className="absolute rounded-full blur-2xl" style={{
+              inset: "-4px",
+              background: "radial-gradient(ellipse, rgba(15,184,206,0.5) 0%, transparent 70%)",
+              animation: "logoCoreGlow 4s ease-in-out infinite",
+            }} />
+            <Image
+              src="/logo.webp"
+              alt="The Pine Cone Group"
+              width={160}
+              height={160}
+              className="relative h-14 md:h-24 w-auto drop-shadow-xl transition-transform duration-500 group-hover:scale-105"
+            />
           </Link>
 
           {/* Desktop nav */}
@@ -47,7 +83,8 @@ export default function Navbar() {
         <div className="fixed inset-0 z-40 flex flex-col" style={{ background: "#0b1a18" }}>
           <div className="px-6 flex items-center justify-between h-20" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
             <Link href="/" onClick={() => setOpen(false)} className="relative flex items-center">
-              <div className="absolute inset-0 rounded-full blur-2xl opacity-40" style={{ background: "radial-gradient(ellipse, #0fb8ce 0%, transparent 70%)", transform: "scale(1.4)" }} />
+              <div className="absolute rounded-full" style={{ inset: "-6px", border: "1.5px solid rgba(15,184,206,0.4)", borderRadius: "50%", animation: "logoRing 4s ease-in-out infinite" }} />
+              <div className="absolute rounded-full blur-xl" style={{ inset: "-2px", background: "radial-gradient(ellipse, rgba(15,184,206,0.4) 0%, transparent 70%)", animation: "logoCoreGlow 4s ease-in-out infinite" }} />
               <Image src="/logo.webp" alt="The Pine Cone Group" width={140} height={140} className="relative h-14 w-auto" />
             </Link>
             <button onClick={() => setOpen(false)} className="text-white p-1">
