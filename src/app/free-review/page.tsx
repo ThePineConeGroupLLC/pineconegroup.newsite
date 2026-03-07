@@ -251,7 +251,7 @@ export default function FreeReviewPage() {
             <span className="text-[#0fb8ce] uppercase tracking-[0.2em] text-xs font-bold">Free Tool</span>
           </div>
           <h1 className="font-playfair font-black text-white leading-tight mb-5" style={{ fontSize: "clamp(2.4rem, 7vw, 4.2rem)" }}>
-            Free Website<br /><span style={{ color: "#0fb8ce" }}>Performance Review</span>
+            Free Website<br /><span style={{ color: "#0fb8ce" }}>Performance <em style={{ color: "#F5A94C", fontStyle: "italic" }}>Review</em></span>
           </h1>
           <p className="text-gray-400 text-lg leading-relaxed max-w-xl mx-auto">
             Enter your URL and see exactly how your website scores across design, conversion, mobile, and AI visibility — in seconds.
