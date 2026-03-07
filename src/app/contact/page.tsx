@@ -15,10 +15,12 @@ export default function ContactPage() {
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
-    await fetch("https://formspree.io/f/mkoqgwdq", {
+    data.append("access_key", "b5f4224c-4510-4da2-932e-28fbd1a271aa");
+    data.append("subject", "New Lead — The Pine Cone Group Website");
+    data.append("from_name", "Pine Cone Group Website");
+    await fetch("https://api.web3forms.com/submit", {
       method: "POST",
       body: data,
-      headers: { Accept: "application/json" },
     });
     setSubmitted(true);
   }
@@ -90,7 +92,6 @@ export default function ContactPage() {
             ) : (
               <div className="rounded-2xl p-8" style={{ background: CARD, border: "1px solid rgba(255,255,255,0.07)" }}>
                 <form onSubmit={handleSubmit} className="space-y-5">
-                  <input type="hidden" name="_subject" value="New Lead — Website Lead Gen Form" />
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div>
                       <label className="block text-xs uppercase tracking-widest text-gray-400 mb-2">Full Name *</label>
