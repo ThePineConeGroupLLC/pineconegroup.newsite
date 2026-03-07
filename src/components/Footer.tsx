@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
           <div>
             <div className="font-playfair text-white font-bold text-lg mb-3">The Pine Cone Group</div>
-            <p className="text-sm leading-relaxed">Strategic Growth. Premium Craft. Measurable Results.</p>
+            <p className="text-sm leading-relaxed">The Pine Cone Group helps ambitious brands grow leads and revenue through strategic design, digital storytelling, and premium digital positioning that converts.</p>
           </div>
           <div>
             <div className="text-white font-semibold mb-3 text-sm uppercase tracking-widest">Navigation</div>
@@ -31,8 +31,9 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="pt-6 text-sm text-center" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
-          © {new Date().getFullYear()} The Pine Cone Group LLC. All rights reserved.
+        <div className="pt-6 text-sm flex flex-col md:flex-row items-center justify-between gap-3" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+          <span>© {new Date().getFullYear()} The Pine Cone Group LLC. All rights reserved.</span>
+          <span className="text-gray-500">Strategic Growth. Premium Craft. Measurable Results.</span>
         </div>
       </div>
     </footer>
