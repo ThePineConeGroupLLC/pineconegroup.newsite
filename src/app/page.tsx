@@ -46,14 +46,14 @@ function StatItem({ value, label }: { value: string; label: string }) {
       <div className="text-4xl md:text-5xl font-bold text-[#0fb8ce] mb-2">
         {match ? `${displayNum}${suffix}` : value}
       </div>
-      <div className="text-gray-600 text-sm uppercase tracking-wide">{label}</div>
+      <div className="text-gray-400 text-sm uppercase tracking-wide">{label}</div>
     </div>
   );
 }
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white text-gray-900 font-sans">
+    <div className="min-h-screen bg-black text-white font-sans">
       <Navbar />
 
       {/* Hero */}
@@ -91,10 +91,10 @@ export default function Home() {
       </section>
 
       {/* Stats */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-black">
         <div className="max-w-5xl mx-auto px-6">
-          <h2 className="text-center text-3xl font-bold mb-4">Results That Speak</h2>
-          <p className="text-center text-gray-500 mb-14 max-w-xl mx-auto">We measure success by the growth we generate for the brands we partner with.</p>
+          <h2 className="text-center text-3xl font-bold mb-4 text-white">Results That Speak</h2>
+          <p className="text-center text-gray-400 mb-14 max-w-xl mx-auto">We measure success by the growth we generate for the brands we partner with.</p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
             <StatItem value="3x" label="Average Lead Increase" />
             <StatItem value="94%" label="Client Satisfaction Rate" />
@@ -105,10 +105,10 @@ export default function Home() {
       </section>
 
       {/* Services */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-950">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-center text-3xl font-bold mb-4">What We Do</h2>
-          <p className="text-center text-gray-500 mb-14 max-w-xl mx-auto">Every engagement is built around your specific business goals, market position, and growth trajectory.</p>
+          <h2 className="text-center text-3xl font-bold mb-4 text-white">What We Do</h2>
+          <p className="text-center text-gray-400 mb-14 max-w-xl mx-auto">Every engagement is built around your specific business goals, market position, and growth trajectory.</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               { title: "Website Design & Development", desc: "High-converting websites that build trust, communicate value, and drive action.", icon: "🌐" },
@@ -118,15 +118,15 @@ export default function Home() {
               { title: "AI Visibility & Search Readiness", desc: "Be found where the future searches — ChatGPT, Perplexity, Google SGE.", icon: "🤖" },
               { title: "Marketing Consulting", desc: "Senior-level strategy and positioning expertise without the overhead.", icon: "📈" },
             ].map((s) => (
-              <div key={s.title} className="border border-gray-100 rounded-2xl p-8 hover:shadow-lg transition-shadow">
+              <div key={s.title} className="border border-white/10 rounded-2xl p-8 hover:border-[#0fb8ce]/50 transition-colors bg-gray-900">
                 <div className="text-3xl mb-4">{s.icon}</div>
-                <h3 className="text-xl font-bold mb-3">{s.title}</h3>
-                <p className="text-gray-500 leading-relaxed">{s.desc}</p>
+                <h3 className="text-xl font-bold mb-3 text-white">{s.title}</h3>
+                <p className="text-gray-400 leading-relaxed">{s.desc}</p>
               </div>
             ))}
           </div>
           <div className="text-center mt-10">
-            <Link href="/services" className="inline-block border border-gray-300 hover:border-[#0fb8ce] hover:text-[#0fb8ce] font-semibold px-8 py-3 rounded-full transition-colors">
+            <Link href="/services" className="inline-block border border-white/20 hover:border-[#0fb8ce] hover:text-[#0fb8ce] text-white font-semibold px-8 py-3 rounded-full transition-colors">
               View All Services
             </Link>
           </div>

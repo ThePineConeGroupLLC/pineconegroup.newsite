@@ -91,7 +91,7 @@ const services = [
 
 export default function ServicesPage() {
   return (
-    <div className="min-h-screen bg-white text-gray-900 font-sans">
+    <div className="min-h-screen bg-black text-white font-sans">
       <Navbar />
 
       {/* Hero */}
@@ -110,11 +110,11 @@ export default function ServicesPage() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             {services.map((s) => (
-              <div key={s.title} className="border border-gray-100 rounded-2xl p-8 hover:shadow-lg transition-shadow">
+              <div key={s.title} className="border border-white/10 rounded-2xl p-8 hover:border-[#0fb8ce]/50 transition-colors bg-gray-900">
                 <div className="text-4xl mb-4">{s.icon}</div>
                 <p className="text-[#0fb8ce] text-sm uppercase tracking-wide font-semibold mb-1">{s.tagline}</p>
                 <h2 className="text-2xl font-bold mb-3">{s.title}</h2>
-                <p className="text-gray-500 leading-relaxed mb-6">{s.desc}</p>
+                <p className="text-gray-400 leading-relaxed mb-6">{s.desc}</p>
                 <ul className="space-y-2">
                   {s.features.map((f) => (
                     <li key={f} className="flex items-start gap-3 text-sm text-gray-600">

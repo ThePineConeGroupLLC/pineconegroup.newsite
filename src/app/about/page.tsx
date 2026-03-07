@@ -49,14 +49,14 @@ function AnimatedStat({ value, label }: { value: string; label: string }) {
       <div className="text-4xl md:text-5xl font-bold text-[#0fb8ce] mb-2">
         {rawNum ? `${prefix}${displayNum}${suffix}` : value}
       </div>
-      <div className="text-gray-500 text-sm uppercase tracking-wide">{label}</div>
+      <div className="text-gray-400 text-sm uppercase tracking-wide">{label}</div>
     </div>
   );
 }
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-white text-gray-900 font-sans">
+    <div className="min-h-screen bg-black text-white font-sans">
       <Navbar />
 
       {/* Hero */}
@@ -71,7 +71,7 @@ export default function AboutPage() {
       </section>
 
       {/* Stats */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-950">
         <div className="max-w-5xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
             <AnimatedStat value="400+" label="Brands Transformed" />
@@ -83,33 +83,33 @@ export default function AboutPage() {
       </section>
 
       {/* Philosophy */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-900">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-3xl font-bold mb-6">Design and Strategy Must Work as One</h2>
-          <p className="text-gray-600 text-lg leading-relaxed mb-6">
+          <p className="text-gray-400 text-lg leading-relaxed mb-6">
             Most agencies separate strategy and design — and that's exactly why so many websites fail. You either get a beautiful site that doesn't convert, or a strategic plan with no visual execution to match it.
           </p>
-          <p className="text-gray-600 text-lg leading-relaxed">
+          <p className="text-gray-400 text-lg leading-relaxed">
             At The Pine Cone Group, strategy and design are inseparable. Every visual decision is rooted in business objectives. Every strategic recommendation is brought to life with premium craft. The result is a digital presence that doesn't just look right — it performs.
           </p>
         </div>
       </section>
 
       {/* Why It Matters */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-950">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-3xl font-bold mb-6">Your Website Is Your First Impression. And Your Sales Team.</h2>
-          <p className="text-gray-600 text-lg leading-relaxed mb-6">
+          <p className="text-gray-400 text-lg leading-relaxed mb-6">
             Buyers research online before ever engaging. Most brands are losing leads, clients, and revenue every day — and they don't even know it. The gap between how good your business actually is and how it appears online is costing you more than you realize.
           </p>
-          <p className="text-gray-600 text-lg leading-relaxed">
+          <p className="text-gray-400 text-lg leading-relaxed">
             We were founded to close that gap — to give ambitious, serious brands the kind of digital presence that builds trust on contact, communicates value at a glance, and turns visitors into buyers.
           </p>
         </div>
       </section>
 
       {/* Core Values */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-900">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-center text-3xl font-bold mb-14">Our Core Values</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -123,7 +123,7 @@ export default function AboutPage() {
             ].map((v) => (
               <div key={v.title} className="border-l-4 border-[#0fb8ce] pl-6 py-2">
                 <h3 className="text-lg font-bold mb-2">{v.title}</h3>
-                <p className="text-gray-500 leading-relaxed text-sm">{v.desc}</p>
+                <p className="text-gray-400 leading-relaxed text-sm">{v.desc}</p>
               </div>
             ))}
           </div>
@@ -158,7 +158,7 @@ export default function AboutPage() {
         <div className="max-w-3xl mx-auto px-6">
           <h2 className="text-4xl font-bold mb-4">Ready to Work Together?</h2>
           <p className="text-xl mb-10 opacity-90">Let&apos;s build something remarkable.</p>
-          <Link href="/contact" className="bg-white text-[#0fb8ce] font-bold px-10 py-4 rounded-full hover:bg-gray-100 transition-colors text-lg inline-block">
+          <Link href="/contact" className="bg-gray-900 text-[#0fb8ce] font-bold px-10 py-4 rounded-full hover:bg-gray-100 transition-colors text-lg inline-block">
             Schedule a Strategy Call
           </Link>
         </div>

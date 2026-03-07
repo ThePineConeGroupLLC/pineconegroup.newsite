@@ -121,7 +121,7 @@ const caseStudies = [
 
 export default function CaseStudiesPage() {
   return (
-    <div className="min-h-screen bg-white text-gray-900 font-sans">
+    <div className="min-h-screen bg-black text-white font-sans">
       <Navbar />
 
       {/* Hero */}
@@ -139,7 +139,7 @@ export default function CaseStudiesPage() {
       <section className="py-20">
         <div className="max-w-5xl mx-auto px-6 space-y-20">
           {caseStudies.map((cs, i) => (
-            <div key={cs.client} className={`rounded-2xl overflow-hidden border border-gray-100 shadow-sm`}>
+            <div key={cs.client} className={`rounded-2xl overflow-hidden border border-white/10 bg-gray-900`}>
               <div className="bg-gray-900 text-white px-8 py-6">
                 <p className="text-[#0fb8ce] text-sm uppercase tracking-wide font-semibold mb-1">{cs.label}</p>
                 <h2 className="text-2xl font-bold">{cs.industry}</h2>
@@ -161,11 +161,11 @@ export default function CaseStudiesPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div>
                     <h3 className="font-bold text-lg mb-3">The Challenge</h3>
-                    <p className="text-gray-600 leading-relaxed text-sm">{cs.challenge}</p>
+                    <p className="text-gray-400 leading-relaxed text-sm">{cs.challenge}</p>
                   </div>
                   <div>
                     <h3 className="font-bold text-lg mb-3">Our Approach</h3>
-                    <p className="text-gray-600 leading-relaxed text-sm">{cs.solution}</p>
+                    <p className="text-gray-400 leading-relaxed text-sm">{cs.solution}</p>
                   </div>
                 </div>
 
@@ -173,14 +173,14 @@ export default function CaseStudiesPage() {
                   <h3 className="font-bold text-lg mb-3">What We Did</h3>
                   <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
                     {cs.actions.map((a) => (
-                      <li key={a} className="flex items-start gap-2 text-sm text-gray-600">
+                      <li key={a} className="flex items-start gap-2 text-sm text-gray-400">
                         <span className="text-[#0fb8ce] mt-0.5">✓</span>{a}
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <blockquote className="mt-8 border-l-4 border-[#0fb8ce] pl-6 italic text-gray-600">
+                <blockquote className="mt-8 border-l-4 border-[#0fb8ce] pl-6 italic text-gray-400">
                   &ldquo;{cs.quote}&rdquo;
                   <footer className="text-sm text-gray-400 mt-2 not-italic">— {cs.attribution}</footer>
                 </blockquote>
