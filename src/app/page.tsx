@@ -49,7 +49,7 @@ function StatItem({ value, label }: { value: string; label: string }) {
 
   return (
     <div ref={ref} className="text-center py-10 px-4">
-      <div className="font-playfair text-6xl md:text-7xl font-black text-[#0fb8ce] mb-3 leading-none">
+      <div className="font-playfair text-4xl md:text-6xl lg:text-7xl font-black text-[#0fb8ce] mb-3 leading-none">
         {match ? `${displayNum}${suffix}` : value}
       </div>
       <div className="text-gray-400 text-xs uppercase tracking-widest leading-relaxed">{label}</div>
@@ -93,7 +93,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen text-white" style={{ background: BG, fontFamily: "var(--font-inter)" }}>
+    <div className="min-h-screen text-white overflow-x-hidden" style={{ background: BG, fontFamily: "var(--font-inter)" }}>
       <Navbar />
 
       {/* Hero */}
@@ -104,7 +104,7 @@ export default function Home() {
           <div className="absolute bottom-1/3 left-1/4 w-64 h-64 rounded-full blur-3xl" style={{ background: "rgba(245,169,76,0.05)", animation: "pulse 8s ease-in-out infinite 2s" }} />
         </div>
 
-        <div className="relative max-w-2xl mx-auto px-6 py-40 text-center w-full">
+        <div className="relative max-w-2xl mx-auto px-6 py-28 md:py-40 text-center w-full">
           {/* Badge */}
           <div
             className="inline-flex items-center gap-3 rounded-full px-6 py-2.5 mb-10"
@@ -248,7 +248,7 @@ export default function Home() {
                   </div>
                   <h3 className="font-playfair font-bold text-white text-xl mb-1">{c.client}</h3>
                   <p className="text-gray-400 text-sm mb-4">{c.metricLabel}</p>
-                  <div className="font-playfair font-black text-[#0fb8ce] mb-5" style={{ fontSize: "3.5rem", lineHeight: 1 }}>{c.metric}</div>
+                  <div className="font-playfair font-black text-[#0fb8ce] mb-5" style={{ fontSize: "clamp(2rem, 8vw, 3.5rem)", lineHeight: 1 }}>{c.metric}</div>
                   <p className="text-gray-400 italic text-sm leading-relaxed border-l-2 border-[#0fb8ce]/30 pl-4">&ldquo;{c.quote}&rdquo;</p>
                 </div>
               </FadeIn>
@@ -263,8 +263,8 @@ export default function Home() {
           <FadeIn>
             <div className="rounded-2xl overflow-hidden" style={{ background: CARD, border: "1px solid rgba(15,184,206,0.2)", boxShadow: "0 0 60px rgba(15,184,206,0.07)" }}>
               <div className="grid grid-cols-1 md:grid-cols-2">
-                <div className="p-10 md:p-14">
-                  <h2 className="font-playfair font-black text-white leading-tight mb-6" style={{ fontSize: "clamp(2rem, 5vw, 3rem)" }}>
+                <div className="p-7 md:p-14">
+                  <h2 className="font-playfair font-black text-white leading-tight mb-6" style={{ fontSize: "clamp(1.6rem, 5vw, 3rem)" }}>
                     Free Website Performance Review
                   </h2>
                   <p className="text-gray-400 leading-relaxed mb-8">
@@ -274,7 +274,7 @@ export default function Home() {
                     Run My Free Review →
                   </Link>
                 </div>
-                <div className="p-10 md:p-14 flex flex-col justify-center gap-5" style={{ borderLeft: "1px solid rgba(255,255,255,0.07)" }}>
+                <div className="p-8 md:p-14 flex flex-col justify-center gap-5" style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }} >
                   {[
                     { label: "Performance Score", score: 72 },
                     { label: "Design Quality", score: 58 },

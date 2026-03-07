@@ -235,7 +235,7 @@ export default function FreeReviewPage() {
   try { displayDomain = new URL(cleanUrl).hostname.replace(/^www\./, ""); } catch {}
 
   return (
-    <div className="min-h-screen text-white" style={{ background: BG, fontFamily: "var(--font-inter)" }}>
+    <div className="min-h-screen text-white overflow-x-hidden" style={{ background: BG, fontFamily: "var(--font-inter)" }}>
       <Navbar />
 
       {/* Hero */}
@@ -256,23 +256,23 @@ export default function FreeReviewPage() {
 
           {/* INPUT */}
           {stage === "input" && (
-            <div className="rounded-2xl p-10 md:p-14" style={{ background: CARD, border: "1px solid rgba(15,184,206,0.2)" }}>
+            <div className="rounded-2xl p-7 md:p-14" style={{ background: CARD, border: "1px solid rgba(15,184,206,0.2)" }}>
               <h2 className="font-playfair font-bold text-white text-2xl mb-2">Enter Your Website URL</h2>
               <p className="text-gray-400 text-sm mb-8">We&apos;ll evaluate your site across 5 performance dimensions used by top digital strategists.</p>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <div className="flex gap-3">
+                  <div className="flex flex-col sm:flex-row gap-3">
                     <input
                       type="text"
                       value={url}
                       onChange={(e) => { setUrl(e.target.value); setInputError(""); }}
                       placeholder="yourwebsite.com"
-                      className="flex-1 rounded-xl px-5 py-4 text-white placeholder-gray-500 text-sm focus:outline-none transition-colors"
+                      className="flex-1 rounded-xl px-5 py-4 text-white placeholder-gray-500 text-sm focus:outline-none transition-colors w-full"
                       style={{ background: "#0b1a18", border: `1px solid ${inputError ? "#e05a5a" : "rgba(255,255,255,0.12)"}` }}
                     />
                     <button
                       type="submit"
-                      className="text-black font-bold px-8 py-4 rounded-xl transition-all hover:scale-105 whitespace-nowrap"
+                      className="text-black font-bold px-8 py-4 rounded-xl transition-all hover:scale-105 w-full sm:w-auto"
                       style={{ background: "#0fb8ce" }}
                     >
                       Analyze →
@@ -334,7 +334,7 @@ export default function FreeReviewPage() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2">
                   {/* Overall score */}
-                  <div className="p-8 flex items-center justify-center" style={{ borderRight: "1px solid rgba(255,255,255,0.07)" }}>
+                  <div className="p-8 flex items-center justify-center" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
                     <OverallScore scores={scores} />
                   </div>
 

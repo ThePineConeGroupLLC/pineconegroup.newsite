@@ -89,7 +89,7 @@ const caseStudies = [
 
 export default function CaseStudiesPage() {
   return (
-    <div className="min-h-screen text-white" style={{ background: BG }}>
+    <div className="min-h-screen text-white overflow-x-hidden" style={{ background: BG }}>
       <Navbar />
 
       {/* Hero */}
@@ -121,7 +121,7 @@ export default function CaseStudiesPage() {
                 <div className="flex flex-wrap gap-8 mb-8">
                   {cs.metrics.map((m) => (
                     <div key={m.label}>
-                      <div className="font-playfair font-black text-[#0fb8ce] leading-none mb-1" style={{ fontSize: "3rem" }}>
+                      <div className="font-playfair font-black text-[#0fb8ce] leading-none mb-1" style={{ fontSize: "clamp(1.8rem, 6vw, 3rem)" }}>
                         <AnimatedMetric value={m.value} />
                       </div>
                       <div className="text-gray-400 text-sm">{m.label}</div>

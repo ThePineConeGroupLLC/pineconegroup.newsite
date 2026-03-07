@@ -10,11 +10,11 @@ export default function Navbar() {
   return (
     <>
       <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md" style={{ background: "rgba(11,26,24,0.95)", borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
-        <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-24">
+        <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-20 md:h-24">
           <Link href="/" className="flex items-center relative" onClick={() => setOpen(false)}>
             {/* Glow behind logo */}
             <div className="absolute inset-0 rounded-full blur-2xl opacity-40" style={{ background: "radial-gradient(ellipse, #0fb8ce 0%, transparent 70%)", transform: "scale(1.4)" }} />
-            <Image src="/logo.webp" alt="The Pine Cone Group" width={140} height={140} className="relative h-20 w-auto drop-shadow-lg" />
+            <Image src="/logo.webp" alt="The Pine Cone Group" width={140} height={140} className="relative h-14 md:h-20 w-auto drop-shadow-lg" />
           </Link>
 
           {/* Desktop nav */}
@@ -45,10 +45,10 @@ export default function Navbar() {
       {/* Mobile full-screen menu */}
       {open && (
         <div className="fixed inset-0 z-40 flex flex-col" style={{ background: "#0b1a18" }}>
-          <div className="px-6 flex items-center justify-between h-24" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+          <div className="px-6 flex items-center justify-between h-20" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
             <Link href="/" onClick={() => setOpen(false)} className="relative flex items-center">
               <div className="absolute inset-0 rounded-full blur-2xl opacity-40" style={{ background: "radial-gradient(ellipse, #0fb8ce 0%, transparent 70%)", transform: "scale(1.4)" }} />
-              <Image src="/logo.webp" alt="The Pine Cone Group" width={140} height={140} className="relative h-20 w-auto" />
+              <Image src="/logo.webp" alt="The Pine Cone Group" width={140} height={140} className="relative h-14 w-auto" />
             </Link>
             <button onClick={() => setOpen(false)} className="text-white p-1">
               <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
@@ -69,7 +69,7 @@ export default function Navbar() {
                 key={item.label}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="font-playfair font-bold text-white py-4 text-4xl border-b transition-colors hover:text-[#0fb8ce]"
+                className="font-playfair font-bold text-white py-4 text-3xl md:text-4xl border-b transition-colors hover:text-[#0fb8ce]"
                 style={{ borderColor: "rgba(255,255,255,0.07)" }}
               >
                 {item.label}

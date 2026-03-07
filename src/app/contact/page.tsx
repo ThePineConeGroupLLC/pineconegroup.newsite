@@ -29,7 +29,7 @@ export default function ContactPage() {
   const inputStyle = { background: CARD, border: "1px solid rgba(255,255,255,0.1)" };
 
   return (
-    <div className="min-h-screen text-white" style={{ background: BG }}>
+    <div className="min-h-screen text-white overflow-x-hidden" style={{ background: BG }}>
       <Navbar />
 
       {/* Hero */}
@@ -90,7 +90,7 @@ export default function ContactPage() {
                 <p className="text-gray-400">Thank you for reaching out. We&apos;ll be in touch within one business day.</p>
               </div>
             ) : (
-              <div className="rounded-2xl p-8" style={{ background: CARD, border: "1px solid rgba(255,255,255,0.07)" }}>
+              <div className="rounded-2xl p-5 md:p-8" style={{ background: CARD, border: "1px solid rgba(255,255,255,0.07)" }}>
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div>

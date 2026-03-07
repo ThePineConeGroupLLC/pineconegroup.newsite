@@ -61,7 +61,7 @@ function AnimatedStat({ value, label }: { value: string; label: string }) {
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen text-white" style={{ background: BG }}>
+    <div className="min-h-screen text-white overflow-x-hidden" style={{ background: BG }}>
       <Navbar />
 
       {/* Hero */}
@@ -80,14 +80,14 @@ export default function AboutPage() {
       {/* Stats */}
       <section style={{ background: BG2, borderTop: "1px solid rgba(255,255,255,0.06)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
         <div className="max-w-5xl mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4" style={{ borderLeft: "1px solid rgba(255,255,255,0.06)" }}>
+          <div className="grid grid-cols-2 md:grid-cols-4">
             {[
               { value: "400+", label: "Brands Transformed" },
               { value: "94%", label: "Client Satisfaction Rate" },
               { value: "180%", label: "Avg. Conversion Lift" },
               { value: "$2M+", label: "Additional Revenue Generated" },
             ].map((s) => (
-              <div key={s.label} style={{ borderRight: "1px solid rgba(255,255,255,0.06)" }}>
+              <div key={s.label}>
                 <AnimatedStat value={s.value} label={s.label} />
               </div>
             ))}
