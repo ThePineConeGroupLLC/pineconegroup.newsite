@@ -142,39 +142,43 @@ nextjs-portal {
 
 /* CTA button animations */
 @keyframes cta-shimmer {
-  0% { transform: translateX(-100%) skewX(-15deg); }
-  100% { transform: translateX(250%) skewX(-15deg); }
+  0% { left: -60%; }
+  100% { left: 130%; }
 }
 
 @keyframes cta-glow-pulse {
-  0%, 100% { box-shadow: 0 0 24px rgba(15,184,206,0.45), 0 0 48px rgba(15,184,206,0.2), inset 0 1px 0 rgba(255,255,255,0.25); }
-  50% { box-shadow: 0 0 40px rgba(15,184,206,0.75), 0 0 80px rgba(15,184,206,0.35), inset 0 1px 0 rgba(255,255,255,0.25); }
+  0%, 100% { opacity: 0.85; }
+  50% { opacity: 1; }
 }
 
 .cta-btn {
   position: relative;
   overflow: hidden;
+  clip-path: inset(0 round 9999px);
   background: linear-gradient(135deg, #0fb8ce 0%, #0dd4ed 50%, #0fb8ce 100%) !important;
+  box-shadow: 0 0 28px rgba(15,184,206,0.5), 0 0 56px rgba(15,184,206,0.2), inset 0 1px 0 rgba(255,255,255,0.25) !important;
   animation: cta-glow-pulse 2.5s ease-in-out infinite;
-  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease !important;
+  will-change: opacity;
 }
 
 .cta-btn::before {
   content: "";
   position: absolute;
   top: 0;
-  left: 0;
-  width: 40%;
+  left: -60%;
+  width: 45%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
   animation: cta-shimmer 2.8s ease-in-out infinite;
-  border-radius: inherit;
+  pointer-events: none;
 }
 
 .cta-btn:hover {
   transform: scale(1.06) translateY(-2px) !important;
-  box-shadow: 0 0 60px rgba(15,184,206,0.85), 0 8px 32px rgba(15,184,206,0.4) !important;
+  box-shadow: 0 0 48px rgba(15,184,206,0.8), 0 8px 24px rgba(15,184,206,0.35) !important;
   animation: none;
+  opacity: 1;
 }
 
 .cta-btn:active {
