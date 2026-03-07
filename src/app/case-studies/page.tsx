@@ -119,8 +119,8 @@ export default function CaseStudiesPage() {
           {caseStudies.map((cs) => (
             <div key={cs.client} className="rounded-2xl overflow-hidden" style={{ background: CARD, border: "1px solid rgba(255,255,255,0.07)" }}>
               <div className="px-8 py-6" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
-                <div className="inline-flex items-center rounded-full px-4 py-1.5 mb-4" style={{ background: "rgba(15,184,206,0.12)", border: "1px solid rgba(15,184,206,0.25)" }}>
-                  <span className="text-[#0fb8ce] text-xs uppercase tracking-[0.15em] font-bold">{cs.tag}</span>
+                <div className="inline-flex items-center rounded-full px-4 py-1.5 mb-4" style={{ background: "rgba(245,169,76,0.12)", border: "1px solid rgba(245,169,76,0.35)" }}>
+                  <span className="text-xs uppercase tracking-[0.15em] font-bold" style={{ color: "#F5A94C" }}>{cs.tag}</span>
                 </div>
                 <h2 className="font-playfair font-bold text-2xl mb-1" style={{ color: "#F5A94C" }}>{cs.industry}</h2>
                 <p className="text-gray-400 text-sm">{cs.client}</p>
