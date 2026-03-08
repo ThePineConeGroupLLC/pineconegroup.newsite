@@ -141,6 +141,11 @@ nextjs-portal {
   50% { opacity: 0.7; transform: scale(1.15); }
 }
 
+@keyframes phraseReveal {
+  0%   { opacity: 0; transform: translateY(18px); filter: blur(4px); }
+  100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
 /* CTA button animations */
 @keyframes cta-shimmer {
   0%   { transform: translateX(-100%) skewX(-15deg); opacity: 0; }

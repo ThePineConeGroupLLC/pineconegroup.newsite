@@ -138,23 +138,33 @@ export default function Home() {
             <span className="italic" style={{ color: "#F5A94C" }}>Accelerated.</span>
           </h1>
 
-          <p
-            className="text-base md:text-lg leading-relaxed mb-12 max-w-xl mx-auto"
-            style={{
-              opacity: heroVisible ? 1 : 0,
-              transform: heroVisible ? "translateY(0)" : "translateY(20px)",
-              transition: "opacity 0.7s ease 300ms, transform 0.7s ease 300ms",
-              color: "rgba(255,255,255,0.75)",
-              fontWeight: 400,
-              letterSpacing: "0.01em",
-            }}
-          >
-            We help ambitious brands{" "}
-            <span style={{ color: "#F5A94C", fontWeight: 600 }}>grow leads and revenue</span>{" "}
-            through strategic design, digital storytelling, and{" "}
-            <span style={{ color: "#0fb8ce", fontWeight: 600 }}>premium digital positioning</span>{" "}
-            that converts.
-          </p>
+          <div className="mb-12 max-w-2xl mx-auto" style={{ lineHeight: 1.5 }}>
+            {[
+              { text: "We help ambitious brands", highlight: false, delay: "0.3s" },
+              { text: "grow leads and revenue", highlight: "gold", delay: "0.55s" },
+              { text: "through strategic design, digital storytelling,", highlight: false, delay: "0.8s" },
+              { text: "and premium digital positioning", highlight: "teal", delay: "1.05s" },
+              { text: "that converts.", highlight: false, delay: "1.3s" },
+            ].map((phrase, i) => (
+              <span
+                key={i}
+                style={{
+                  display: "inline",
+                  fontFamily: "var(--font-cormorant)",
+                  fontSize: "clamp(1.25rem, 3vw, 1.65rem)",
+                  fontWeight: phrase.highlight ? 600 : 400,
+                  fontStyle: phrase.highlight ? "italic" : "normal",
+                  color: phrase.highlight === "gold" ? "#F5A94C" : phrase.highlight === "teal" ? "#0fb8ce" : "rgba(255,255,255,0.8)",
+                  opacity: heroVisible ? 1 : 0,
+                  animation: heroVisible ? `phraseReveal 0.6s ease forwards ${phrase.delay}` : "none",
+                  marginRight: "0.35em",
+                  letterSpacing: "0.01em",
+                }}
+              >
+                {phrase.text}
+              </span>
+            ))}
+          </div>
 
           <div
             style={{
