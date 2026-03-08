@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Globe, Palette, Target, BookOpen, Bot, Zap, TrendingUp, Check } from "lucide-react";
+import { Globe, Palette, Target, BookOpen, Bot, Zap, TrendingUp, Check, Star } from "lucide-react";
 
 const BG = "#0b1a18";
 const BG2 = "#0f2320";
@@ -15,6 +15,7 @@ const services = [
   { title: "AI Visibility & Search Readiness", tagline: "Be found where the future searches", desc: "Positioning your brand for discovery by AI-powered tools like ChatGPT, Perplexity, and Google SGE — the new frontier of search.", features: ["Authority content for AI citation", "Structured data and entity optimization", "Topical depth and semantic relevance", "Future-proof digital presence architecture"], icon: Bot },
   { title: "Lead Generation Systems", tagline: "Turn your website into a growth engine", desc: "Full-funnel systems that attract your ideal clients, build trust automatically, and convert visitors into qualified opportunities consistently.", features: ["Full-funnel strategy and architecture", "High-converting lead capture assets", "Automated nurture and follow-up systems", "Consistent, predictable lead volume"], icon: Zap },
   { title: "Marketing Consulting", tagline: "Senior strategic direction, without the overhead", desc: "Senior-level strategy and positioning expertise without the cost of a full CMO or in-house team.", features: ["Positioning and messaging strategy", "Marketing channel prioritization", "Campaign and funnel architecture", "Quarterly strategic review and guidance"], icon: TrendingUp },
+  { title: "Reputation & Trust Management", tagline: "Your credibility is your competitive edge", desc: "We build and protect the social proof systems that make your brand the obvious, trusted choice — turning happy clients into your most powerful marketing asset.", features: ["Google review strategy & generation", "Testimonial capture and display systems", "Online reputation monitoring", "Trust signal architecture across touchpoints"], icon: Star },
 ];
 
 export default function ServicesPage() {
