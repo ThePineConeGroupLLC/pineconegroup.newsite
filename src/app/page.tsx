@@ -133,7 +133,7 @@ export default function Home() {
             }}
           >
             <span className="text-white">Your Brand.</span><br />
-            <span className="italic" style={{ color: "#F5A94C" }}>Elevated.</span><br />
+            <span className="italic" style={{ color: "#ffd47a" }}>Elevated.</span><br />
             <span className="text-white">Your Growth.</span><br />
             <span className="italic" style={{ color: "#ffd47a" }}>Accelerated.</span>
           </h1>
