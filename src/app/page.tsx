@@ -139,14 +139,21 @@ export default function Home() {
           </h1>
 
           <p
-            className="text-gray-400 text-lg leading-relaxed mb-12 max-w-lg mx-auto"
+            className="text-base md:text-lg leading-relaxed mb-12 max-w-xl mx-auto"
             style={{
               opacity: heroVisible ? 1 : 0,
               transform: heroVisible ? "translateY(0)" : "translateY(20px)",
               transition: "opacity 0.7s ease 300ms, transform 0.7s ease 300ms",
+              color: "rgba(255,255,255,0.75)",
+              fontWeight: 400,
+              letterSpacing: "0.01em",
             }}
           >
-            The Pine Cone Group helps ambitious brands grow leads and revenue through strategic design, digital storytelling, and premium digital positioning that converts.
+            We help ambitious brands{" "}
+            <span style={{ color: "#F5A94C", fontWeight: 600 }}>grow leads and revenue</span>{" "}
+            through strategic design, digital storytelling, and{" "}
+            <span style={{ color: "#0fb8ce", fontWeight: 600 }}>premium digital positioning</span>{" "}
+            that converts.
           </p>
 
           <div
